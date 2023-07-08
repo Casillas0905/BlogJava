@@ -2,8 +2,7 @@ package com.ServerSep3.Server.Model;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "chat")
+
 public class ChatModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

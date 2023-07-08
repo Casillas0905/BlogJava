@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/message")
 public class MessageController {
-    private final MessageService messageService;
+    /*private final MessageService messageService;
 
     public MessageController(MessageService messageService) {
         this.messageService = messageService;
@@ -33,6 +33,6 @@ public class MessageController {
     @GetMapping("/delete/{id}")
     public void deleteMessage(@PathVariable("id")long id){
         messageService.deleteMessage(id);
-    }
+    }*/
 
 }

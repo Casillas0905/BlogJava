@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/usersInEvents")
 public class UsersInEvent {
 
-    private final UsersInEventsService usersInEventsService;
+    /*private final UsersInEventsService usersInEventsService;
 
     public UsersInEvent(UsersInEventsService usersInEventsService) {
         this.usersInEventsService = usersInEventsService;
@@ -32,5 +32,5 @@ public class UsersInEvent {
     @GetMapping("/delete/{id}")
     public void deleteUserFromEvent(@PathVariable("id") UsersInEvents usersInEvents){
         usersInEventsService.deleteUser(usersInEvents);
-    }
+    }*/
 }

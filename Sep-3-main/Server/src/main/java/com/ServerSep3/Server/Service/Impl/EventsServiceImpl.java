@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EventsServiceImpl implements EventService {
+public class EventsServiceImpl  {
 
-    private final EventRepository eventRepository;
+    /*private final EventRepository eventRepository;
 
     public EventsServiceImpl(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
@@ -42,5 +42,5 @@ public class EventsServiceImpl implements EventService {
     @Override
     public void deleteEvent(Long id) {
         eventRepository.deleteById(id);
-    }
+    }*/
 }

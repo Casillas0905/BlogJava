@@ -14,7 +14,7 @@ import java.util.List;
 @GRpcService
 public class MessageGrpcImpl extends MessagesGrpc.MessagesImplBase {
 
-    @Autowired
+   /* @Autowired
     MessageService service;
 
     @Override
@@ -68,5 +68,5 @@ public class MessageGrpcImpl extends MessagesGrpc.MessagesImplBase {
         service.deleteMessage((long) request.getId());
         responseObserver.onCompleted();
         System.out.println("Message deleted");
-    }
+    }*/
 }

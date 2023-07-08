@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MatchServiceImpl implements MatchService {
+public class MatchServiceImpl  {
 
 
-    private final MatchRepository matchRepository;
+    /*private final MatchRepository matchRepository;
     private final UserRepository userRepository;
     private final ChatRepository chatRepository;
 
@@ -56,15 +56,15 @@ public class MatchServiceImpl implements MatchService {
         List<MatchModel> resultList = new ArrayList<>();
         resultList.addAll(list1);
         resultList.addAll(list2);
-        /*for (int i=0; i<resultList.size()-1;i++){
+        for (int i=0; i<resultList.size()-1;i++){
             if(resultList.get(i).getUserId1() == id && !(resultList.get(i).getMatchUser1()).equals("null")){
                     list1.remove(i);
             }
-        }\
-       /* for (int i=0; i<resultList.size();i++){
+        }
+       for (int i=0; i<resultList.size();i++){
             if(resultList.get(i).getUserId2() == id && !(resultList.get(i).getMatchUser2()).equals("null")){
                 list1.remove(i);
-            }*/
+            }
 
         return resultList;
     }
@@ -97,5 +97,5 @@ public class MatchServiceImpl implements MatchService {
         matchModel.setMatchUser2("null");
         matchModel.setMatch("null");
         return matchRepository.save(matchModel);
-    }
+    }*/
 }

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UsersInEventsImpl implements UsersInEventsService {
+public class UsersInEventsImpl  {
 
-    private final UsersInEventRepository usersInEventRepository;
+   /* private final UsersInEventRepository usersInEventRepository;
 
     public UsersInEventsImpl(UsersInEventRepository usersInEventRepository) {
         this.usersInEventRepository = usersInEventRepository;
@@ -30,5 +30,5 @@ public class UsersInEventsImpl implements UsersInEventsService {
     @Override
     public void deleteUser(UsersInEvents usersInEvents) {
         usersInEventRepository.delete(usersInEvents);
-    }
+    }*/
 }

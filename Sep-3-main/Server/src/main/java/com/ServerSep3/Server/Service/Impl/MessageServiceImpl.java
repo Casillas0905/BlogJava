@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MessageServiceImpl implements MessageService {
+public class MessageServiceImpl  {
 
-    private final MessageRepository messageRepository;
+    /*private final MessageRepository messageRepository;
 
     public MessageServiceImpl(MessageRepository messageRepository) {
         this.messageRepository = messageRepository;
@@ -34,5 +34,5 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void deleteMessage(Long id) {
         messageRepository.deleteById(id);
-    }
+    }*/
 }

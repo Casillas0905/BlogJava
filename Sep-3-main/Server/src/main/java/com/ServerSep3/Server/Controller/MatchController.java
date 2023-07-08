@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/match")
 public class MatchController {
-    private final MatchService matchService;
+    /*private final MatchService matchService;
 
     public MatchController(MatchService matchService) {
         this.matchService = matchService;
@@ -31,6 +31,5 @@ public class MatchController {
     }
 
     @GetMapping("/delete/{id}")
-    public void deleteMatch(@PathVariable("id")long id){matchService.deleteMatch(id);}
-
+    public void deleteMatch(@PathVariable("id")long id){matchService.deleteMatch(id);}*/
 }

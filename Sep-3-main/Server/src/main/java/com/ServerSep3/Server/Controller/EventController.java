@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/event")
 public class EventController {
 
-    private final EventService eventService;
+    /*private final EventService eventService;
 
     public EventController(EventService eventService) {
         this.eventService = eventService;
@@ -37,6 +37,6 @@ public class EventController {
     public EventModel updateEvent(@RequestBody EventModel event){return eventService.updateEvent(event);}
 
     @GetMapping("/delete/{id}")
-    public void deleteEvent(@PathVariable("id")long id){eventService.deleteEvent(id);}
+    public void deleteEvent(@PathVariable("id")long id){eventService.deleteEvent(id);}*/
 
 }

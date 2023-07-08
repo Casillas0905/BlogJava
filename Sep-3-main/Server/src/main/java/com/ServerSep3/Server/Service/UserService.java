@@ -7,11 +7,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface UserService {
-    List<UserModel> findAllUsers();
     UserModel findById(int id);
     UserModel saveUser(UserModel userModel);
-    UserModel updateUser(UserModel userModel);
+    UserModel updateUser(UserModel userModel) throws Exception;
     void deleteUser(Long id);
-    UserModel findByUsername(String username);
-    List<UserModel> findByGender(String gender);
+    UserModel findByEmail(String email);
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @GRpcService
 public class ChatGrpcImpl extends ChatsGrpc.ChatsImplBase {
 
-    @Autowired
+    /*@Autowired
     ChatService service;
 
     @Override
@@ -66,5 +66,5 @@ public class ChatGrpcImpl extends ChatsGrpc.ChatsImplBase {
         }
         responseObserver.onCompleted();
         System.out.println("all chats sent");
-    }
+    }*/
 }

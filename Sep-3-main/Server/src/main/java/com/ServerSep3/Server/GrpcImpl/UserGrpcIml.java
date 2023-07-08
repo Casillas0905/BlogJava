@@ -14,7 +14,7 @@ import java.util.List;
 @GRpcService
 public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
-    @Autowired
+    /*@Autowired
     UserService userService;
 
     public UserGrpcIml() {
@@ -153,7 +153,7 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
     @Override
     public void findByUsername(User.GetByUsername request, StreamObserver<User.UserModel> responseObserver) {
         System.out.println("Find By Username");
-        UserModel model=userService.findByUsername(request.getUsername());
+        UserModel model=userService.findByEmail(request.getUsername());
         if (model == null){
             System.out.println("its null");
             User.UserModel response2= User.UserModel.newBuilder()
@@ -215,6 +215,6 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
-        }
+        }*/
     }
 

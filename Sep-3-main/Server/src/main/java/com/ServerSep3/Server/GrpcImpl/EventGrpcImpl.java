@@ -14,7 +14,7 @@ import java.util.List;
 public class EventGrpcImpl extends EventsGrpc.EventsImplBase {
 
 
-    @Autowired
+    /*@Autowired
     EventService service;
 
 
@@ -72,5 +72,5 @@ public class EventGrpcImpl extends EventsGrpc.EventsImplBase {
         service.deleteEvent((long) request.getId());
         responseObserver.onCompleted();
         System.out.println("Event updates");
-    }
+    }*/
 }

@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ChatServiceImpl implements ChatService {
+public class ChatServiceImpl  {
 
-    private final ChatRepository chatRepository;
+   /* private final ChatRepository chatRepository;
 
     public ChatServiceImpl(ChatRepository chatRepository) {
         this.chatRepository = chatRepository;
@@ -40,5 +40,5 @@ public class ChatServiceImpl implements ChatService {
         resultList.addAll(list1);
         resultList.addAll(list2);
         return resultList;
-    }
+    }*/
 }

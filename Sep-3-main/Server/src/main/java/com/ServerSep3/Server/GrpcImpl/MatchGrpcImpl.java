@@ -14,7 +14,7 @@ import java.util.List;
 @GRpcService
 public class MatchGrpcImpl extends MatchesGrpc.MatchesImplBase {
 
-    @Autowired
+    /*@Autowired
     MatchService service;
 
     @Override
@@ -80,5 +80,5 @@ public class MatchGrpcImpl extends MatchesGrpc.MatchesImplBase {
         service.createMatch(new MatchModel(request.getId(), request.getUserId1(), request.getMatchUser1(), request.getUserId2(), request.getMatchUser2(), request.getMatch()));
         responseObserver.onCompleted();
         System.out.println("Match created");
-    }
+    }*/
 }

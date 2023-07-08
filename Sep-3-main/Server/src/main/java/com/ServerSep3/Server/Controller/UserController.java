@@ -14,11 +14,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public List<UserModel> findAllUsers() {
-        return userService.findAllUsers();
-    }
-
     @GetMapping("/id/{id}")
     public UserModel findById(@PathVariable("id")int id) {
         return userService.findById(id);
@@ -30,13 +25,13 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public UserModel updateUser(@RequestBody UserModel user){return userService.updateUser(user);}
+    public UserModel updateUser(@RequestBody UserModel user) throws Exception {return userService.updateUser(user);}
 
     @GetMapping("/delete/{id}")
     public void deleteUser(@PathVariable("id")long id){userService.deleteUser(id);}
 
     @GetMapping("/getByUsername/{username}")
     public UserModel getByUsername(@PathVariable("username")String user){
-        return userService.findByUsername(user);
+        return userService.findByEmail(user);
     }
 }

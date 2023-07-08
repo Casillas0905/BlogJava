@@ -14,16 +14,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    MatchService matchService;
-
-
-
-    @Override
-    public List<UserModel> findAllUsers() {
-        return userRepository.findAll();
-    }
-
     @Override
     public UserModel findById(int id) {
         return userRepository.findById(id);
@@ -32,24 +22,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserModel saveUser(UserModel user) {
         UserModel userModel=userRepository.save(user);
-        matchService.CreateMatchForUser(user);
         return userModel;
     }
 
     @Override
-    public UserModel updateUser(UserModel userModel) {
+    public UserModel updateUser(UserModel userModel) throws Exception {
         UserModel existing= userRepository.findById(userModel.getId());
-        existing.setDescription(userModel.getDescription());
-        existing.setNote(userModel.getNote());
-        existing.setPhoto1(userModel.getPhoto1());
-        existing.setPhoto2(userModel.getPhoto2());
-        existing.setPhoto3(userModel.getPhoto3());
-        existing.setPhoto4(userModel.getPhoto4());
-        existing.setPhoto5(userModel.getPhoto5());
-        existing.setOccupation(userModel.getOccupation());
-        existing.setEducation(userModel.getEducation());
-        existing.setCity(userModel.getCity());
-        existing.setDrink(userModel.isDrink());
+        if(isEmailUse(userModel.getEmail())){
+            throw new Exception("Email is already in use");
+        }
+        existing.setFirstname(userModel.getFirstname());
+        existing.setLastName(userModel.getLastName());
+        existing.setBirthday(userModel.getBirthday());
+        existing.setEmail(userModel.getEmail());
         return userRepository.save(existing);
     }
 
@@ -59,16 +44,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserModel findByUsername(String username) {
-        UserModel userModel= userRepository.findByUsername(username);
+    public UserModel findByEmail(String email) {
+        UserModel userModel= userRepository.findByEmail(email);
         if (userModel == null) {
             return null;
         }
         return userModel;
     }
 
-    @Override
-    public List<UserModel> findByGender(String gender) {
-        return userRepository.findByGender(gender);
+    public boolean isEmailUse(String email){
+        UserModel userModel= userRepository.findByEmail(email);
+        if (userModel == null) {
+            return false;
+        }
+        return true;
     }
 }

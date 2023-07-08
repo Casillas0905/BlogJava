@@ -16,7 +16,7 @@ public class UsersInEventsGrpcImpl extends UsersInEventsGrpc.UsersInEventsImplBa
     @Autowired
     UsersInEventsService service;
 
-    @Override
+    /*@Override
     public void findAllUsersForOneEvent(UsersInEventsOuterClass.RequestUsersInEventId request, StreamObserver<UsersInEventsOuterClass.UserModel> responseObserver) {
         System.out.println("Find all users for one event");
         List<UserModel> users= service.findAllUserForOneEvent(request.getId());
@@ -48,5 +48,5 @@ public class UsersInEventsGrpcImpl extends UsersInEventsGrpc.UsersInEventsImplBa
         UsersInEventsOuterClass.UsersInEventsModel response= UsersInEventsOuterClass.UsersInEventsModel.newBuilder().setEventId(request.getEventId()).setUserId(request.getUserId()).setId(request.getId()).build();
         responseObserver.onCompleted();
         System.out.println("User delete");
-    }
+    }*/
 }
