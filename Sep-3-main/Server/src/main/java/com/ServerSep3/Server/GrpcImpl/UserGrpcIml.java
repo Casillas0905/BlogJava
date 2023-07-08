@@ -9,137 +9,117 @@ import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @GRpcService
 public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
-    /*@Autowired
+    @Autowired
     UserService userService;
 
     public UserGrpcIml() {
     }
 
     @Override
-    public void saveUser(User.UserModel request, StreamObserver<User.Empty> responseObserver) {
+    public void saveUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) {
         System.out.println("Save user");
-        UserModel userModel= new UserModel(request.getId(),request.getUsername(),request.getPassword(),request.getEmail(),request.getFirstName(),request.getLastName(), request.getBirthday(), request.getDescription(), request.getNumberOfMatches(),request.getNote(), request.getPhoto1(), request.getPhoto2(), request.getPhoto3(), request.getPhoto4(), request.getPhoto5(), request.getGender(), request.getPreference(), request.getHoroscope(), request.getOccupation(), request.getCity(), request.getEducation(), request.getDrink(), request.getAdministrator());
+        Date date=new Date(request.getDate().getYear(),request.getDate().getMonth(), request.getDate().getDay());
+        UserModel userModel= new UserModel(request.getId(),
+                request.getFirstName(),
+                request.getPassword(),
+                request.getEmail(),
+                request.getLastName(),
+                date,
+                request.getAdministrator());
         userService.saveUser(userModel);
         responseObserver.onCompleted();
     }
 
     @Override
-    public void findById(User.GetById request, StreamObserver<User.UserModel> responseObserver) {
+    public void findById(User.GetById request, StreamObserver<User.UserModelGrpc> responseObserver) {
         UserModel model=userService.findById(request.getId());
         if (model == null){
             System.out.println("its null");
-            User.UserModel response2= User.UserModel.newBuilder()
+            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(0).setMonth(0).setYear(0).build();
+            User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName("niull")
                     .setId(0)
-                    .setUsername("niull")
                     .setPassword("niull")
                     .setEmail("niull")
                     .setLastName("niull")
-                    .setBirthday("niull")
-                    .setDescription("niull")
-                    .setNumberOfMatches(0)
-                    .setNote("niull")
-                    .setPhoto1("niull")
-                    .setPhoto2("niull")
-                    .setPhoto3("niull")
-                    .setPhoto4("niull")
-                    .setPhoto5("niull")
-                    .setGender("niull")
-                    .setPreference("niull")
-                    .setHoroscope("niull")
-                    .setOccupation("niull")
-                    .setCity("niull")
-                    .setEducation("niull")
-                    .setDrink(true)
+                    .setDate(date)
                     .setAdministrator(false)
                     .build();
-            System.out.println(response2.getUsername());
-            responseObserver.onNext(response2);
+            responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
         else {
-            System.out.println("metido");
-            User.UserModel response= User.UserModel.newBuilder()
-                    .setFirstName(model.getFirstName())
+            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(model.getBirthday().getDay()).setYear(model.getBirthday().getYear()).setMonth(model.getBirthday().getMonth()).build();
+            User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
+                    .setFirstName(model.getFirstname())
                     .setId(model.getId())
-                    .setUsername(model.getUsername())
                     .setPassword(model.getPassword())
                     .setEmail(model.getEmail())
                     .setLastName(model.getLastName())
-                    .setBirthday(model.getBirthday())
-                    .setDescription(model.getDescription())
-                    .setNumberOfMatches(model.getNumber_of_matches())
-                    .setNote(model.getNote())
-                    .setPhoto1(model.getPhoto1())
-                    .setPhoto2(model.getPhoto2())
-                    .setPhoto3(model.getPhoto3())
-                    .setPhoto4(model.getPhoto4())
-                    .setPhoto5(model.getPhoto5())
-                    .setGender(model.getGender())
-                    .setPreference(model.getPreference())
-                    .setHoroscope(model.getHoroscope())
-                    .setOccupation(model.getOccupation())
-                    .setCity(model.getCity())
-                    .setEducation(model.getEducation())
-                    .setDrink(model.isDrink())
+                    .setDate(date)
                     .setAdministrator(model.isAdministrator())
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-    }
+        }
     }
 
-    @Override
-    public void findAll(User.Empty request, StreamObserver<User.UserModel> responseObserver) {
-        System.out.println("Find all");
-        List<UserModel> list= userService.findAllUsers();
-        List<User.UserModel> listGrpc= new ArrayList<>();
-        for (int i=0;i< list.size();i++){
-            User.UserModel userModel= User.UserModel.newBuilder()
-                    .setFirstName(list.get(i).getFirstName())
-                    .setId(list.get(i).getId())
-                    .setUsername(list.get(i).getUsername())
-                    .setPassword(list.get(i).getPassword())
-                    .setEmail(list.get(i).getEmail())
-                    .setLastName(list.get(i).getLastName())
-                    .setBirthday(list.get(i).getBirthday())
-                    .setDescription(list.get(i).getDescription())
-                    .setNumberOfMatches(list.get(i).getNumber_of_matches())
-                    .setNote(list.get(i).getNote())
-                    .setPhoto1(list.get(i).getPhoto1())
-                    .setPhoto2(list.get(i).getPhoto2())
-                    .setPhoto3(list.get(i).getPhoto3())
-                    .setPhoto4(list.get(i).getPhoto4())
-                    .setPhoto5(list.get(i).getPhoto5())
-                    .setGender(list.get(i).getGender())
-                    .setPreference(list.get(i).getPreference())
-                    .setHoroscope(list.get(i).getHoroscope())
-                    .setOccupation(list.get(i).getOccupation())
-                    .setCity(list.get(i).getCity())
-                    .setEducation(list.get(i).getEducation())
-                    .setDrink(list.get(i).isDrink())
-                    .setAdministrator(list.get(i).isAdministrator())
-                    .build();
-            listGrpc.add(userModel);
-        }
-        for (User.UserModel userModel : listGrpc) {
-            responseObserver.onNext(userModel);
-        }
-        responseObserver.onCompleted();
-        System.out.println("Users send");
-    }
 
     @Override
-    public void updateUser(User.UserModel request, StreamObserver<User.Empty> responseObserver) {
+    public void updateUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) throws Exception {
         System.out.println("Update user");
-        userService.updateUser(new UserModel(request.getId(),request.getUsername(),request.getPassword(),request.getEmail(),request.getFirstName(),request.getLastName(), request.getBirthday(), request.getDescription(), request.getNumberOfMatches(),request.getNote(), request.getPhoto1(), request.getPhoto2(), request.getPhoto3(), request.getPhoto4(), request.getPhoto5(), request.getGender(), request.getPreference(), request.getHoroscope(), request.getOccupation(), request.getCity(), request.getEducation(), request.getDrink(), request.getAdministrator()));
+        Date date=new Date(request.getDate().getYear(),request.getDate().getMonth(), request.getDate().getDay());
+        userService.updateUser(new UserModel(request.getId(),
+                request.getFirstName(),
+                request.getPassword(),
+                request.getEmail(),
+                request.getLastName(),
+                date,
+                request.getAdministrator()));
         responseObserver.onCompleted();
         System.out.println("User updated");
+    }
+
+
+
+    @Override
+    public void findByEmail(User.GetByEmail request, StreamObserver<User.UserModelGrpc> responseObserver) {
+        UserModel model=userService.findByEmail(request.getEmail());
+        if (model == null){
+            System.out.println("its null");
+            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(0).setMonth(0).setYear(0).build();
+            User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
+                    .setFirstName("niull")
+                    .setId(0)
+                    .setPassword("niull")
+                    .setEmail("niull")
+                    .setLastName("niull")
+                    .setDate(date)
+                    .setAdministrator(false)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+        else {
+            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(model.getBirthday().getDay()).setYear(model.getBirthday().getYear()).setMonth(model.getBirthday().getMonth()).build();
+            User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
+                    .setFirstName(model.getFirstname())
+                    .setId(model.getId())
+                    .setPassword(model.getPassword())
+                    .setEmail(model.getEmail())
+                    .setLastName(model.getLastName())
+                    .setDate(date)
+                    .setAdministrator(model.isAdministrator())
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
     }
 
     @Override
@@ -149,72 +129,5 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
         responseObserver.onCompleted();
         System.out.println("User delete");
     }
-
-    @Override
-    public void findByUsername(User.GetByUsername request, StreamObserver<User.UserModel> responseObserver) {
-        System.out.println("Find By Username");
-        UserModel model=userService.findByEmail(request.getUsername());
-        if (model == null){
-            System.out.println("its null");
-            User.UserModel response2= User.UserModel.newBuilder()
-            .setFirstName("niull")
-                    .setId(0)
-                    .setUsername("niull")
-                    .setPassword("niull")
-                    .setEmail("niull")
-                    .setLastName("niull")
-                    .setBirthday("niull")
-                    .setDescription("niull")
-                    .setNumberOfMatches(0)
-                    .setNote("niull")
-                    .setPhoto1("niull")
-                    .setPhoto2("niull")
-                    .setPhoto3("niull")
-                    .setPhoto4("niull")
-                    .setPhoto5("niull")
-                    .setGender("niull")
-                    .setPreference("niull")
-                    .setHoroscope("niull")
-                    .setOccupation("niull")
-                    .setCity("niull")
-                    .setEducation("niull")
-                    .setDrink(true)
-                    .setAdministrator(false)
-                            .build();
-            System.out.println(response2.getUsername());
-            responseObserver.onNext(response2);
-            responseObserver.onCompleted();
-        }
-        else {
-            System.out.println("metido");
-        User.UserModel response= User.UserModel.newBuilder()
-                    .setFirstName(model.getFirstName())
-                    .setId(model.getId())
-                    .setUsername(model.getUsername())
-                    .setPassword(model.getPassword())
-                    .setEmail(model.getEmail())
-                    .setLastName(model.getLastName())
-                    .setBirthday(model.getBirthday())
-                    .setDescription(model.getDescription())
-                    .setNumberOfMatches(model.getNumber_of_matches())
-                    .setNote(model.getNote())
-                    .setPhoto1(model.getPhoto1())
-                    .setPhoto2(model.getPhoto2())
-                    .setPhoto3(model.getPhoto3())
-                    .setPhoto4(model.getPhoto4())
-                    .setPhoto5(model.getPhoto5())
-                    .setGender(model.getGender())
-                    .setPreference(model.getPreference())
-                    .setHoroscope(model.getHoroscope())
-                    .setOccupation(model.getOccupation())
-                    .setCity(model.getCity())
-                    .setEducation(model.getEducation())
-                    .setDrink(model.isDrink())
-                    .setAdministrator(model.isAdministrator())
-                    .build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-        }
-        }*/
     }
 

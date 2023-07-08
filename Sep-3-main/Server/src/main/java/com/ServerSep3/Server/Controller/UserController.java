@@ -30,8 +30,8 @@ public class UserController {
     @GetMapping("/delete/{id}")
     public void deleteUser(@PathVariable("id")long id){userService.deleteUser(id);}
 
-    @GetMapping("/getByUsername/{username}")
-    public UserModel getByUsername(@PathVariable("username")String user){
+    @GetMapping("/getByEmail/{email}")
+    public UserModel getByEmail(@PathVariable("email")String user){
         return userService.findByEmail(user);
     }
 }

@@ -2,12 +2,9 @@ package com.ServerSep3.Server.Service.Impl;
 
 import com.ServerSep3.Server.Model.UserModel;
 import com.ServerSep3.Server.Repository.UserRepository;
-import com.ServerSep3.Server.Service.MatchService;
 import com.ServerSep3.Server.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,9 +25,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserModel updateUser(UserModel userModel) throws Exception {
         UserModel existing= userRepository.findById(userModel.getId());
-        if(isEmailUse(userModel.getEmail())){
+        /*if(isEmailUse(userModel.getEmail())){
             throw new Exception("Email is already in use");
-        }
+        }*/
         existing.setFirstname(userModel.getFirstname());
         existing.setLastName(userModel.getLastName());
         existing.setBirthday(userModel.getBirthday());
