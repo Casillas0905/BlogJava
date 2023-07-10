@@ -18,12 +18,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserModel saveUser(UserModel user) {
+        if(isEmailUse(user.getEmail())){
+            return null;
+        }
         UserModel userModel=userRepository.save(user);
         return userModel;
     }
 
     @Override
-    public UserModel updateUser(UserModel userModel) throws Exception {
+    public UserModel updateUser(UserModel userModel) {
         UserModel existing= userRepository.findById(userModel.getId());
         /*if(isEmailUse(userModel.getEmail())){
             throw new Exception("Email is already in use");

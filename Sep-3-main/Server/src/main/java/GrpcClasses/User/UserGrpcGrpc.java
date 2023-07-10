@@ -76,37 +76,6 @@ public final class UserGrpcGrpc {
     return getFindByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<GrpcClasses.User.User.Empty,
-      GrpcClasses.User.User.UserModelGrpc> getFindAllMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "findAll",
-      requestType = GrpcClasses.User.User.Empty.class,
-      responseType = GrpcClasses.User.User.UserModelGrpc.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<GrpcClasses.User.User.Empty,
-      GrpcClasses.User.User.UserModelGrpc> getFindAllMethod() {
-    io.grpc.MethodDescriptor<GrpcClasses.User.User.Empty, GrpcClasses.User.User.UserModelGrpc> getFindAllMethod;
-    if ((getFindAllMethod = UserGrpcGrpc.getFindAllMethod) == null) {
-      synchronized (UserGrpcGrpc.class) {
-        if ((getFindAllMethod = UserGrpcGrpc.getFindAllMethod) == null) {
-          UserGrpcGrpc.getFindAllMethod = getFindAllMethod =
-              io.grpc.MethodDescriptor.<GrpcClasses.User.User.Empty, GrpcClasses.User.User.UserModelGrpc>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "findAll"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.User.User.Empty.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.User.User.UserModelGrpc.getDefaultInstance()))
-              .setSchemaDescriptor(new UserGrpcMethodDescriptorSupplier("findAll"))
-              .build();
-        }
-      }
-    }
-    return getFindAllMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<GrpcClasses.User.User.UserModelGrpc,
       GrpcClasses.User.User.Empty> getUpdateUserMethod;
 
@@ -264,15 +233,8 @@ public final class UserGrpcGrpc {
 
     /**
      */
-    public void findAll(GrpcClasses.User.User.Empty request,
-        io.grpc.stub.StreamObserver<GrpcClasses.User.User.UserModelGrpc> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindAllMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void updateUser(GrpcClasses.User.User.UserModelGrpc request,
-        io.grpc.stub.StreamObserver<GrpcClasses.User.User.Empty> responseObserver) throws Exception {
+        io.grpc.stub.StreamObserver<GrpcClasses.User.User.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateUserMethod(), responseObserver);
     }
 
@@ -306,13 +268,6 @@ public final class UserGrpcGrpc {
                 GrpcClasses.User.User.GetById,
                 GrpcClasses.User.User.UserModelGrpc>(
                   this, METHODID_FIND_BY_ID)))
-          .addMethod(
-            getFindAllMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
-              new MethodHandlers<
-                GrpcClasses.User.User.Empty,
-                GrpcClasses.User.User.UserModelGrpc>(
-                  this, METHODID_FIND_ALL)))
           .addMethod(
             getUpdateUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -370,14 +325,6 @@ public final class UserGrpcGrpc {
 
     /**
      */
-    public void findAll(GrpcClasses.User.User.Empty request,
-        io.grpc.stub.StreamObserver<GrpcClasses.User.User.UserModelGrpc> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getFindAllMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void updateUser(GrpcClasses.User.User.UserModelGrpc request,
         io.grpc.stub.StreamObserver<GrpcClasses.User.User.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -427,14 +374,6 @@ public final class UserGrpcGrpc {
     public GrpcClasses.User.User.UserModelGrpc findById(GrpcClasses.User.User.GetById request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFindByIdMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public java.util.Iterator<GrpcClasses.User.User.UserModelGrpc> findAll(
-        GrpcClasses.User.User.Empty request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getFindAllMethod(), getCallOptions(), request);
     }
 
     /**
@@ -516,10 +455,9 @@ public final class UserGrpcGrpc {
 
   private static final int METHODID_SAVE_USER = 0;
   private static final int METHODID_FIND_BY_ID = 1;
-  private static final int METHODID_FIND_ALL = 2;
-  private static final int METHODID_UPDATE_USER = 3;
-  private static final int METHODID_DELETE_USER = 4;
-  private static final int METHODID_FIND_BY_EMAIL = 5;
+  private static final int METHODID_UPDATE_USER = 2;
+  private static final int METHODID_DELETE_USER = 3;
+  private static final int METHODID_FIND_BY_EMAIL = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -544,10 +482,6 @@ public final class UserGrpcGrpc {
           break;
         case METHODID_FIND_BY_ID:
           serviceImpl.findById((GrpcClasses.User.User.GetById) request,
-              (io.grpc.stub.StreamObserver<GrpcClasses.User.User.UserModelGrpc>) responseObserver);
-          break;
-        case METHODID_FIND_ALL:
-          serviceImpl.findAll((GrpcClasses.User.User.Empty) request,
               (io.grpc.stub.StreamObserver<GrpcClasses.User.User.UserModelGrpc>) responseObserver);
           break;
         case METHODID_UPDATE_USER:
@@ -625,7 +559,6 @@ public final class UserGrpcGrpc {
               .setSchemaDescriptor(new UserGrpcFileDescriptorSupplier())
               .addMethod(getSaveUserMethod())
               .addMethod(getFindByIdMethod())
-              .addMethod(getFindAllMethod())
               .addMethod(getUpdateUserMethod())
               .addMethod(getDeleteUserMethod())
               .addMethod(getFindByEmailMethod())

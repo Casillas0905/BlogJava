@@ -23,8 +23,10 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
     @Override
     public void saveUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) {
-        System.out.println("Save user");
-        Date date=new Date(request.getDate().getYear(),request.getDate().getMonth(), request.getDate().getDay());
+        Date date=new Date(request.getYear()-1900,request.getMonth()-1, request.getDay());
+        System.out.println(date.getDay());
+        System.out.println(date.getMonth());
+        System.out.println(date.getYear());
         UserModel userModel= new UserModel(request.getId(),
                 request.getFirstName(),
                 request.getPassword(),
@@ -33,6 +35,8 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
                 date,
                 request.getAdministrator());
         userService.saveUser(userModel);
+        User.Empty empty= User.Empty.newBuilder().build();
+        responseObserver.onNext(empty);
         responseObserver.onCompleted();
     }
 
@@ -41,28 +45,30 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
         UserModel model=userService.findById(request.getId());
         if (model == null){
             System.out.println("its null");
-            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(0).setMonth(0).setYear(0).build();
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName("niull")
                     .setId(0)
                     .setPassword("niull")
                     .setEmail("niull")
                     .setLastName("niull")
-                    .setDate(date)
+                    .setDay(0)
+                    .setYear(0)
+                    .setMonth(0)
                     .setAdministrator(false)
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
         else {
-            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(model.getBirthday().getDay()).setYear(model.getBirthday().getYear()).setMonth(model.getBirthday().getMonth()).build();
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName(model.getFirstname())
                     .setId(model.getId())
                     .setPassword(model.getPassword())
                     .setEmail(model.getEmail())
                     .setLastName(model.getLastName())
-                    .setDate(date)
+                    .setDay(model.getBirthday().getDay())
+                    .setYear(model.getBirthday().getYear())
+                    .setMonth(model.getBirthday().getMonth())
                     .setAdministrator(model.isAdministrator())
                     .build();
             responseObserver.onNext(response);
@@ -72,9 +78,9 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
 
     @Override
-    public void updateUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) throws Exception {
+    public void updateUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) {
         System.out.println("Update user");
-        Date date=new Date(request.getDate().getYear(),request.getDate().getMonth(), request.getDate().getDay());
+        Date date=new Date(request.getYear(),request.getMonth(), request.getDay());
         userService.updateUser(new UserModel(request.getId(),
                 request.getFirstName(),
                 request.getPassword(),
@@ -93,30 +99,36 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
         UserModel model=userService.findByEmail(request.getEmail());
         if (model == null){
             System.out.println("its null");
-            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(0).setMonth(0).setYear(0).build();
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName("niull")
                     .setId(0)
                     .setPassword("niull")
                     .setEmail("niull")
                     .setLastName("niull")
-                    .setDate(date)
+                    .setMonth(0)
+                    .setYear(0)
+                    .setDay(0)
                     .setAdministrator(false)
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
         else {
-            User.DateGrpc date= User.DateGrpc.newBuilder().setDay(model.getBirthday().getDay()).setYear(model.getBirthday().getYear()).setMonth(model.getBirthday().getMonth()).build();
+            System.out.println("its taken");
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName(model.getFirstname())
                     .setId(model.getId())
                     .setPassword(model.getPassword())
                     .setEmail(model.getEmail())
                     .setLastName(model.getLastName())
-                    .setDate(date)
+                    .setDay(model.getBirthday().getDay())
+                    .setYear(model.getBirthday().getYear())
+                    .setMonth(model.getBirthday().getMonth())
                     .setAdministrator(model.isAdministrator())
                     .build();
+            System.out.println(model.getBirthday().getDay());
+            System.out.println(model.getBirthday().getYear());
+            System.out.println(model.getBirthday().getMonth());
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
