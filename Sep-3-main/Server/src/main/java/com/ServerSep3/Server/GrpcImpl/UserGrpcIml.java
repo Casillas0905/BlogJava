@@ -126,9 +126,6 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
                     .setMonth(model.getBirthday().getMonth())
                     .setAdministrator(model.isAdministrator())
                     .build();
-            System.out.println(model.getBirthday().getDay());
-            System.out.println(model.getBirthday().getYear());
-            System.out.println(model.getBirthday().getMonth());
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
