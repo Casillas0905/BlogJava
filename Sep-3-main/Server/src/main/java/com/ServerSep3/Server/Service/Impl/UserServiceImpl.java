@@ -28,9 +28,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserModel updateUser(UserModel userModel) {
         UserModel existing= userRepository.findById(userModel.getId());
-        /*if(isEmailUse(userModel.getEmail())){
-            throw new Exception("Email is already in use");
-        }*/
         existing.setFirstname(userModel.getFirstname());
         existing.setLastName(userModel.getLastName());
         existing.setBirthday(userModel.getBirthday());

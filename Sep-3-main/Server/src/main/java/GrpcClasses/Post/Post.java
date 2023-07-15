@@ -31,16 +31,10 @@ public final class Post {
     int getUserId();
 
     /**
-     * <code>string category = 3;</code>
+     * <code>int32 category = 3;</code>
      * @return The category.
      */
-    java.lang.String getCategory();
-    /**
-     * <code>string category = 3;</code>
-     * @return The bytes for category.
-     */
-    com.google.protobuf.ByteString
-        getCategoryBytes();
+    int getCategory();
 
     /**
      * <code>string title = 4;</code>
@@ -103,7 +97,6 @@ public final class Post {
       super(builder);
     }
     private PostModelGrpc() {
-      category_ = "";
       title_ = "";
       description_ = "";
       imageUrl_ = "";
@@ -150,10 +143,9 @@ public final class Post {
               userId_ = input.readInt32();
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
 
-              category_ = s;
+              category_ = input.readInt32();
               break;
             }
             case 34: {
@@ -237,41 +229,14 @@ public final class Post {
     }
 
     public static final int CATEGORY_FIELD_NUMBER = 3;
-    private volatile java.lang.Object category_;
+    private int category_;
     /**
-     * <code>string category = 3;</code>
+     * <code>int32 category = 3;</code>
      * @return The category.
      */
     @java.lang.Override
-    public java.lang.String getCategory() {
-      java.lang.Object ref = category_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        category_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string category = 3;</code>
-     * @return The bytes for category.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCategoryBytes() {
-      java.lang.Object ref = category_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        category_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getCategory() {
+      return category_;
     }
 
     public static final int TITLE_FIELD_NUMBER = 4;
@@ -446,8 +411,8 @@ public final class Post {
       if (userId_ != 0) {
         output.writeInt32(2, userId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, category_);
+      if (category_ != 0) {
+        output.writeInt32(3, category_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, title_);
@@ -478,8 +443,9 @@ public final class Post {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, userId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, category_);
+      if (category_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, category_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, title_);
@@ -512,8 +478,8 @@ public final class Post {
           != other.getId()) return false;
       if (getUserId()
           != other.getUserId()) return false;
-      if (!getCategory()
-          .equals(other.getCategory())) return false;
+      if (getCategory()
+          != other.getCategory()) return false;
       if (!getTitle()
           .equals(other.getTitle())) return false;
       if (!getDescription()
@@ -538,7 +504,7 @@ public final class Post {
       hash = (37 * hash) + USERID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId();
       hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
-      hash = (53 * hash) + getCategory().hashCode();
+      hash = (53 * hash) + getCategory();
       hash = (37 * hash) + TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -684,7 +650,7 @@ public final class Post {
 
         userId_ = 0;
 
-        category_ = "";
+        category_ = 0;
 
         title_ = "";
 
@@ -781,9 +747,8 @@ public final class Post {
         if (other.getUserId() != 0) {
           setUserId(other.getUserId());
         }
-        if (!other.getCategory().isEmpty()) {
-          category_ = other.category_;
-          onChanged();
+        if (other.getCategory() != 0) {
+          setCategory(other.getCategory());
         }
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
@@ -892,78 +857,33 @@ public final class Post {
         return this;
       }
 
-      private java.lang.Object category_ = "";
+      private int category_ ;
       /**
-       * <code>string category = 3;</code>
+       * <code>int32 category = 3;</code>
        * @return The category.
        */
-      public java.lang.String getCategory() {
-        java.lang.Object ref = category_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          category_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getCategory() {
+        return category_;
       }
       /**
-       * <code>string category = 3;</code>
-       * @return The bytes for category.
-       */
-      public com.google.protobuf.ByteString
-          getCategoryBytes() {
-        java.lang.Object ref = category_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          category_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string category = 3;</code>
+       * <code>int32 category = 3;</code>
        * @param value The category to set.
        * @return This builder for chaining.
        */
-      public Builder setCategory(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setCategory(int value) {
+        
         category_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string category = 3;</code>
+       * <code>int32 category = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategory() {
         
-        category_ = getDefaultInstance().getCategory();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string category = 3;</code>
-       * @param value The bytes for category to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCategoryBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        category_ = value;
+        category_ = 0;
         onChanged();
         return this;
       }
@@ -3780,7 +3700,7 @@ public final class Post {
     java.lang.String[] descriptorData = {
       "\n\nPost.proto\022\020GrpcClasses.Post\"\205\001\n\rPostM" +
       "odelGrpc\022\n\n\002id\030\001 \001(\005\022\016\n\006userId\030\002 \001(\005\022\020\n\010" +
-      "category\030\003 \001(\t\022\r\n\005title\030\004 \001(\t\022\023\n\013descrip" +
+      "category\030\003 \001(\005\022\r\n\005title\030\004 \001(\t\022\023\n\013descrip" +
       "tion\030\005 \001(\t\022\020\n\010imageUrl\030\006 \001(\t\022\020\n\010location" +
       "\030\007 \001(\t\"\025\n\007GetById\022\n\n\002id\030\001 \001(\005\"\033\n\nGetByTi" +
       "tle\022\r\n\005title\030\001 \001(\t\"U\n\020SearchParameters\022\r" +

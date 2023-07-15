@@ -133,10 +133,8 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
     @Override
     public void deleteUser(User.GetById request, StreamObserver<User.Empty> responseObserver) {
-        System.out.println("Delete user");
         userService.deleteUser((long) request.getId());
         responseObserver.onCompleted();
-        System.out.println("User delete");
     }
     }
 

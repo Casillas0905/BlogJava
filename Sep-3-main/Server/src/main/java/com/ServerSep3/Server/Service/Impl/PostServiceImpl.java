@@ -1,5 +1,6 @@
 package com.ServerSep3.Server.Service.Impl;
 
+import com.ServerSep3.Server.Model.CategoryModel;
 import com.ServerSep3.Server.Model.PostModel;
 import com.ServerSep3.Server.Model.SearchParameters;
 import com.ServerSep3.Server.Model.UserModel;
@@ -70,5 +71,22 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostModel> findByUserId(int id) {
         return postRepository.findByUserId(id);
+    }
+
+    @Override
+    public PostModel updatePost(PostModel postModel) {
+        PostModel existing= postRepository.findById(postModel.getId());
+        existing.setCategory(postModel.getCategory());
+        existing.setLocation(postModel.getLocation());
+        existing.setDescription(postModel.getDescription());
+        existing.setTitle(postModel.getTitle());
+        existing.setImageUrl(postModel.getImageUrl());
+        return postRepository.save(existing);
+
+    }
+
+    @Override
+    public void deletePost(int id) {
+        postRepository.deleteById(Long.valueOf(id));
     }
 }

@@ -7,6 +7,7 @@ import com.ServerSep3.Server.Model.CategoryModel;
 import com.ServerSep3.Server.Model.PostModel;
 import com.ServerSep3.Server.Model.SearchParameters;
 import com.ServerSep3.Server.Model.UserModel;
+import com.ServerSep3.Server.Service.CategoryService;
 import com.ServerSep3.Server.Service.PostService;
 import com.ServerSep3.Server.Service.UserService;
 import io.grpc.stub.StreamObserver;
@@ -26,16 +27,19 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
     @Autowired
     UserService userService;
 
+    @Autowired
+    CategoryService categoryService;
+
     public PostGrpcImpl() {
     }
 
     @Override
     public void createPost(Post.PostModelGrpc request, StreamObserver<Post.Empty> responseObserver) {
         UserModel user= userService.findById(request.getUserId());
-        CategoryModel category=
+        CategoryModel category= categoryService.findById(request.getCategory());
         PostModel postModel= new PostModel(request.getId(),
                 user,
-                request.getCategory(),
+                category,
                 request.getTitle(),
                 request.getDescription(),
                 request.getImageUrl(),
@@ -52,7 +56,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
         if (model == null){
             System.out.println("its null");
             Post.PostModelGrpc response= Post.PostModelGrpc.newBuilder()
-                    .setCategory("niull")
+                    .setCategory(0)
                     .setId(0)
                     .setDescription("niull")
                     .setImageUrl("niull")
@@ -65,7 +69,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
         }
         else {
             Post.PostModelGrpc response= Post.PostModelGrpc.newBuilder()
-                    .setCategory(model.getCategory())
+                    .setCategory(model.getCategory().getId())
                     .setId(model.getId())
                     .setDescription(model.getDescription())
                     .setImageUrl(model.getImageUrl())
@@ -80,17 +84,30 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
 
     @Override
     public void updatePost(Post.PostModelGrpc request, StreamObserver<Post.Empty> responseObserver) {
-        super.updatePost(request, responseObserver);
+        UserModel user= userService.findById(request.getUserId());
+        CategoryModel category= categoryService.findById(request.getCategory());
+        PostModel postModel= new PostModel(request.getId(),
+                user,
+                category,
+                request.getTitle(),
+                request.getDescription(),
+                request.getImageUrl(),
+                request.getLocation());
+        postService.updatePost(postModel);
+        Post.Empty empty = Post.Empty.newBuilder().build();
+        responseObserver.onNext(empty);
+        responseObserver.onCompleted();
     }
 
     @Override
     public void deletePost(Post.GetById request, StreamObserver<Post.Empty> responseObserver) {
-        super.deletePost(request, responseObserver);
+        postService.deletePost(request.getId());
+        responseObserver.onCompleted();
     }
 
     @Override
     public void findByParameters(Post.SearchParameters request, StreamObserver<Post.PostModelGrpc> responseObserver) {
-        SearchParameters parameters=new SearchParameters(request.getTitle(), request.getLocation(), request.getCategory());
+        SearchParameters parameters=new SearchParameters(request.getTitle(), request.getLocation(), request.getCategory(),request.getUserId());
         if(parameters.getTitle().equals("niull")){
             parameters.setTitle(null);
         }
@@ -104,7 +121,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
         List<Post.PostModelGrpc> listGrpc= new ArrayList<>();
         for (int i=0;i< list.size();i++){
             Post.PostModelGrpc post= Post.PostModelGrpc.newBuilder()
-                    .setCategory(list.get(i).getCategory())
+                    .setCategory(list.get(i).getCategory().getId())
                     .setId(list.get(i).getId())
                     .setDescription(list.get(i).getDescription())
                     .setImageUrl(list.get(i).getImageUrl())
@@ -125,7 +142,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
         List<Post.PostModelGrpc> listGrpc= new ArrayList<>();
         for (int i=0;i< list.size();i++){
             Post.PostModelGrpc post= Post.PostModelGrpc.newBuilder()
-                    .setCategory(list.get(i).getCategory())
+                    .setCategory(list.get(i).getCategory().getId())
                     .setId(list.get(i).getId())
                     .setDescription(list.get(i).getDescription())
                     .setImageUrl(list.get(i).getImageUrl())

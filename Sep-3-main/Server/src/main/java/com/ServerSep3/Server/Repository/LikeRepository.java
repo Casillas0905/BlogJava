@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LikeRepository extends JpaRepository<LikeModel,Long> {
     LikeModel findById(int id);
-    LikeModel findByPostLiked(int id);
+    LikeModel findByPostLikedAndUserLiking(int PostId,int Userid);
 }

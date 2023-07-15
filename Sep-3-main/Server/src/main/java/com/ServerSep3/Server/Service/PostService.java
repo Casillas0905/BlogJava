@@ -11,4 +11,6 @@ public interface PostService {
     List<PostModel> findByParameters(SearchParameters parameters);
     PostModel findById(int id);
     List<PostModel> findByUserId(int id);
+    PostModel updatePost(PostModel postModel);
+    void deletePost(int id);
 }
