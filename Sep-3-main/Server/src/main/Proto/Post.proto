@@ -33,6 +33,7 @@ message SearchParameters{
   string title=1;
   string location=2;
   string category=3;
+  int32 userId=4;
 }
 
 message Empty{

@@ -24,7 +24,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostModel createPost(PostModel postModel) {
-        UserModel user= userRepository.findById(postModel.getUserId());
+        UserModel user= userRepository.findById(postModel.getUser().getId());
         if(user == null){
             return null;
         }
@@ -40,7 +40,7 @@ public class PostServiceImpl implements PostService {
 
         if(!(parameters.getCategory() == null)){
             for (int i=0;i<list.size();i++){
-                if(!(list.get(i).getCategory().toLowerCase().equals(parameters.getCategory().toLowerCase()))){
+                if(!(list.get(i).getCategory().getCategory().toLowerCase().equals(parameters.getCategory().toLowerCase()))){
                     list.remove(i);
                 }
             }
@@ -52,7 +52,13 @@ public class PostServiceImpl implements PostService {
                 }
             }
         }
-
+        if(!(parameters.getUserId() == 0)){
+            for (int j=0;j<list.size();j++){
+                if(!(list.get(j).getUser().getId() == parameters.getUserId())){
+                    list.remove(j);
+                }
+            }
+        }
         return list;
     }
 

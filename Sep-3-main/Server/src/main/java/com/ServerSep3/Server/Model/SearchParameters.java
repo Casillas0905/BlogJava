@@ -4,11 +4,13 @@ public class SearchParameters {
     private String title;
     private String location;
     private String category;
+    private int userId;
 
-    public SearchParameters(String title, String location, String category) {
+    public SearchParameters(String title, String location, String category, int userId) {
         this.title = title;
         this.location = location;
         this.category = category;
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -33,5 +35,13 @@ public class SearchParameters {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

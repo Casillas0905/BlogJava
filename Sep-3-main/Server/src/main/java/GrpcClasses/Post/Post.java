@@ -2423,6 +2423,12 @@ public final class Post {
      */
     com.google.protobuf.ByteString
         getCategoryBytes();
+
+    /**
+     * <code>int32 userId = 4;</code>
+     * @return The userId.
+     */
+    int getUserId();
   }
   /**
    * Protobuf type {@code GrpcClasses.Post.SearchParameters}
@@ -2488,6 +2494,11 @@ public final class Post {
               java.lang.String s = input.readStringRequireUtf8();
 
               category_ = s;
+              break;
+            }
+            case 32: {
+
+              userId_ = input.readInt32();
               break;
             }
             default: {
@@ -2638,6 +2649,17 @@ public final class Post {
       }
     }
 
+    public static final int USERID_FIELD_NUMBER = 4;
+    private int userId_;
+    /**
+     * <code>int32 userId = 4;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public int getUserId() {
+      return userId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2661,6 +2683,9 @@ public final class Post {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, category_);
       }
+      if (userId_ != 0) {
+        output.writeInt32(4, userId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2678,6 +2703,10 @@ public final class Post {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, category_);
+      }
+      if (userId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, userId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2700,6 +2729,8 @@ public final class Post {
           .equals(other.getLocation())) return false;
       if (!getCategory()
           .equals(other.getCategory())) return false;
+      if (getUserId()
+          != other.getUserId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2717,6 +2748,8 @@ public final class Post {
       hash = (53 * hash) + getLocation().hashCode();
       hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
       hash = (53 * hash) + getCategory().hashCode();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2856,6 +2889,8 @@ public final class Post {
 
         category_ = "";
 
+        userId_ = 0;
+
         return this;
       }
 
@@ -2885,6 +2920,7 @@ public final class Post {
         result.title_ = title_;
         result.location_ = location_;
         result.category_ = category_;
+        result.userId_ = userId_;
         onBuilt();
         return result;
       }
@@ -2944,6 +2980,9 @@ public final class Post {
         if (!other.getCategory().isEmpty()) {
           category_ = other.category_;
           onChanged();
+        }
+        if (other.getUserId() != 0) {
+          setUserId(other.getUserId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3198,6 +3237,37 @@ public final class Post {
   checkByteStringIsUtf8(value);
         
         category_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int userId_ ;
+      /**
+       * <code>int32 userId = 4;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>int32 userId = 4;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(int value) {
+        
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 userId = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        
+        userId_ = 0;
         onChanged();
         return this;
       }
@@ -3713,23 +3783,21 @@ public final class Post {
       "category\030\003 \001(\t\022\r\n\005title\030\004 \001(\t\022\023\n\013descrip" +
       "tion\030\005 \001(\t\022\020\n\010imageUrl\030\006 \001(\t\022\020\n\010location" +
       "\030\007 \001(\t\"\025\n\007GetById\022\n\n\002id\030\001 \001(\005\"\033\n\nGetByTi" +
-      "tle\022\r\n\005title\030\001 \001(\t\"E\n\020SearchParameters\022\r" +
+      "tle\022\r\n\005title\030\001 \001(\t\"U\n\020SearchParameters\022\r" +
       "\n\005title\030\001 \001(\t\022\020\n\010location\030\002 \001(\t\022\020\n\010categ" +
-      "ory\030\003 \001(\t\"\007\n\005Empty2\242\004\n\010PostGrpc\022H\n\ncreat" +
-      "ePost\022\037.GrpcClasses.Post.PostModelGrpc\032\027" +
-      ".GrpcClasses.Post.Empty\"\000\022H\n\010findById\022\031." +
-      "GrpcClasses.Post.GetById\032\037.GrpcClasses.P" +
-      "ost.PostModelGrpc\"\000\022H\n\nupdatePost\022\037.Grpc" +
-      "Classes.Post.PostModelGrpc\032\027.GrpcClasses" +
-      ".Post.Empty\"\000\022B\n\ndeletePost\022\031.GrpcClasse" +
-      "s.Post.GetById\032\027.GrpcClasses.Post.Empty\"" +
-      "\000\022[\n\020findByParameters\022\".GrpcClasses.Post" +
-      ".SearchParameters\032\037.GrpcClasses.Post.Pos" +
-      "tModelGrpc\"\0000\001\022G\n\007findAll\022\027.GrpcClasses." +
-      "Post.Empty\032\037.GrpcClasses.Post.PostModelG" +
-      "rpc\"\0000\001\022N\n\014findByUserId\022\031.GrpcClasses.Po" +
-      "st.GetById\032\037.GrpcClasses.Post.PostModelG" +
-      "rpc\"\0000\001b\006proto3"
+      "ory\030\003 \001(\t\022\016\n\006userId\030\004 \001(\005\"\007\n\005Empty2\331\003\n\010P" +
+      "ostGrpc\022H\n\ncreatePost\022\037.GrpcClasses.Post" +
+      ".PostModelGrpc\032\027.GrpcClasses.Post.Empty\"" +
+      "\000\022H\n\010findById\022\031.GrpcClasses.Post.GetById" +
+      "\032\037.GrpcClasses.Post.PostModelGrpc\"\000\022H\n\nu" +
+      "pdatePost\022\037.GrpcClasses.Post.PostModelGr" +
+      "pc\032\027.GrpcClasses.Post.Empty\"\000\022B\n\ndeleteP" +
+      "ost\022\031.GrpcClasses.Post.GetById\032\027.GrpcCla" +
+      "sses.Post.Empty\"\000\022[\n\020findByParameters\022\"." +
+      "GrpcClasses.Post.SearchParameters\032\037.Grpc" +
+      "Classes.Post.PostModelGrpc\"\0000\001\022N\n\014findBy" +
+      "UserId\022\031.GrpcClasses.Post.GetById\032\037.Grpc" +
+      "Classes.Post.PostModelGrpc\"\0000\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3758,7 +3826,7 @@ public final class Post {
     internal_static_GrpcClasses_Post_SearchParameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GrpcClasses_Post_SearchParameters_descriptor,
-        new java.lang.String[] { "Title", "Location", "Category", });
+        new java.lang.String[] { "Title", "Location", "Category", "UserId", });
     internal_static_GrpcClasses_Post_Empty_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_GrpcClasses_Post_Empty_fieldAccessorTable = new

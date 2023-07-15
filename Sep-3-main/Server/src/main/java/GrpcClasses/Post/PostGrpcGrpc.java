@@ -169,37 +169,6 @@ public final class PostGrpcGrpc {
     return getFindByParametersMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<GrpcClasses.Post.Post.Empty,
-      GrpcClasses.Post.Post.PostModelGrpc> getFindAllMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "findAll",
-      requestType = GrpcClasses.Post.Post.Empty.class,
-      responseType = GrpcClasses.Post.Post.PostModelGrpc.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<GrpcClasses.Post.Post.Empty,
-      GrpcClasses.Post.Post.PostModelGrpc> getFindAllMethod() {
-    io.grpc.MethodDescriptor<GrpcClasses.Post.Post.Empty, GrpcClasses.Post.Post.PostModelGrpc> getFindAllMethod;
-    if ((getFindAllMethod = PostGrpcGrpc.getFindAllMethod) == null) {
-      synchronized (PostGrpcGrpc.class) {
-        if ((getFindAllMethod = PostGrpcGrpc.getFindAllMethod) == null) {
-          PostGrpcGrpc.getFindAllMethod = getFindAllMethod =
-              io.grpc.MethodDescriptor.<GrpcClasses.Post.Post.Empty, GrpcClasses.Post.Post.PostModelGrpc>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "findAll"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.Post.Post.Empty.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.Post.Post.PostModelGrpc.getDefaultInstance()))
-              .setSchemaDescriptor(new PostGrpcMethodDescriptorSupplier("findAll"))
-              .build();
-        }
-      }
-    }
-    return getFindAllMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<GrpcClasses.Post.Post.GetById,
       GrpcClasses.Post.Post.PostModelGrpc> getFindByUserIdMethod;
 
@@ -316,13 +285,6 @@ public final class PostGrpcGrpc {
 
     /**
      */
-    public void findAll(GrpcClasses.Post.Post.Empty request,
-        io.grpc.stub.StreamObserver<GrpcClasses.Post.Post.PostModelGrpc> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindAllMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void findByUserId(GrpcClasses.Post.Post.GetById request,
         io.grpc.stub.StreamObserver<GrpcClasses.Post.Post.PostModelGrpc> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindByUserIdMethod(), responseObserver);
@@ -365,13 +327,6 @@ public final class PostGrpcGrpc {
                 GrpcClasses.Post.Post.SearchParameters,
                 GrpcClasses.Post.Post.PostModelGrpc>(
                   this, METHODID_FIND_BY_PARAMETERS)))
-          .addMethod(
-            getFindAllMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
-              new MethodHandlers<
-                GrpcClasses.Post.Post.Empty,
-                GrpcClasses.Post.Post.PostModelGrpc>(
-                  this, METHODID_FIND_ALL)))
           .addMethod(
             getFindByUserIdMethod(),
             io.grpc.stub.ServerCalls.asyncServerStreamingCall(
@@ -439,14 +394,6 @@ public final class PostGrpcGrpc {
 
     /**
      */
-    public void findAll(GrpcClasses.Post.Post.Empty request,
-        io.grpc.stub.StreamObserver<GrpcClasses.Post.Post.PostModelGrpc> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getFindAllMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void findByUserId(GrpcClasses.Post.Post.GetById request,
         io.grpc.stub.StreamObserver<GrpcClasses.Post.Post.PostModelGrpc> responseObserver) {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
@@ -502,14 +449,6 @@ public final class PostGrpcGrpc {
         GrpcClasses.Post.Post.SearchParameters request) {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getFindByParametersMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public java.util.Iterator<GrpcClasses.Post.Post.PostModelGrpc> findAll(
-        GrpcClasses.Post.Post.Empty request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getFindAllMethod(), getCallOptions(), request);
     }
 
     /**
@@ -573,8 +512,7 @@ public final class PostGrpcGrpc {
   private static final int METHODID_UPDATE_POST = 2;
   private static final int METHODID_DELETE_POST = 3;
   private static final int METHODID_FIND_BY_PARAMETERS = 4;
-  private static final int METHODID_FIND_ALL = 5;
-  private static final int METHODID_FIND_BY_USER_ID = 6;
+  private static final int METHODID_FIND_BY_USER_ID = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -611,10 +549,6 @@ public final class PostGrpcGrpc {
           break;
         case METHODID_FIND_BY_PARAMETERS:
           serviceImpl.findByParameters((GrpcClasses.Post.Post.SearchParameters) request,
-              (io.grpc.stub.StreamObserver<GrpcClasses.Post.Post.PostModelGrpc>) responseObserver);
-          break;
-        case METHODID_FIND_ALL:
-          serviceImpl.findAll((GrpcClasses.Post.Post.Empty) request,
               (io.grpc.stub.StreamObserver<GrpcClasses.Post.Post.PostModelGrpc>) responseObserver);
           break;
         case METHODID_FIND_BY_USER_ID:
@@ -687,7 +621,6 @@ public final class PostGrpcGrpc {
               .addMethod(getUpdatePostMethod())
               .addMethod(getDeletePostMethod())
               .addMethod(getFindByParametersMethod())
-              .addMethod(getFindAllMethod())
               .addMethod(getFindByUserIdMethod())
               .build();
         }

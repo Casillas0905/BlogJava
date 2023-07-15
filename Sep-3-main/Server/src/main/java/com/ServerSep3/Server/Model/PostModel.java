@@ -8,10 +8,12 @@ public class PostModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
-    private int userId;
-    @Column
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserModel user;
+    @ManyToOne
+    @JoinColumn(name = "ctaegory_id")
+    private CategoryModel category;
     @Column
     private String title;
     @Column
@@ -24,9 +26,9 @@ public class PostModel {
     public PostModel() {
     }
 
-    public PostModel(int id, int userId, String category, String title, String description, String imageUrl, String location) {
+    public PostModel(int id, UserModel user, CategoryModel category, String title, String description, String imageUrl, String location) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.category = category;
         this.title = title;
         this.description = description;
@@ -42,19 +44,19 @@ public class PostModel {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public UserModel getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(UserModel user) {
+        this.user = user;
     }
 
-    public String getCategory() {
+    public CategoryModel getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryModel category) {
         this.category = category;
     }
 

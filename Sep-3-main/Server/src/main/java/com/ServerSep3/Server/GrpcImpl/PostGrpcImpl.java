@@ -3,10 +3,12 @@ package com.ServerSep3.Server.GrpcImpl;
 import GrpcClasses.Post.Post;
 import GrpcClasses.Post.PostGrpcGrpc;
 import GrpcClasses.User.User;
+import com.ServerSep3.Server.Model.CategoryModel;
 import com.ServerSep3.Server.Model.PostModel;
 import com.ServerSep3.Server.Model.SearchParameters;
 import com.ServerSep3.Server.Model.UserModel;
 import com.ServerSep3.Server.Service.PostService;
+import com.ServerSep3.Server.Service.UserService;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +23,18 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
     @Autowired
     PostService postService;
 
+    @Autowired
+    UserService userService;
+
     public PostGrpcImpl() {
     }
 
     @Override
     public void createPost(Post.PostModelGrpc request, StreamObserver<Post.Empty> responseObserver) {
+        UserModel user= userService.findById(request.getUserId());
+        CategoryModel category=
         PostModel postModel= new PostModel(request.getId(),
-                request.getUserId(),
+                user,
                 request.getCategory(),
                 request.getTitle(),
                 request.getDescription(),
@@ -62,7 +69,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setId(model.getId())
                     .setDescription(model.getDescription())
                     .setImageUrl(model.getImageUrl())
-                    .setUserId(model.getUserId())
+                    .setUserId(model.getUser().getId())
                     .setLocation(model.getLocation())
                     .setTitle(model.getTitle())
                     .build();
@@ -101,7 +108,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setId(list.get(i).getId())
                     .setDescription(list.get(i).getDescription())
                     .setImageUrl(list.get(i).getImageUrl())
-                    .setUserId(list.get(i).getUserId())
+                    .setUserId(list.get(i).getUser().getId())
                     .setLocation(list.get(i).getLocation())
                     .setTitle(list.get(i).getTitle())
                     .build();
@@ -122,7 +129,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setId(list.get(i).getId())
                     .setDescription(list.get(i).getDescription())
                     .setImageUrl(list.get(i).getImageUrl())
-                    .setUserId(list.get(i).getUserId())
+                    .setUserId(list.get(i).getUser().getId())
                     .setLocation(list.get(i).getLocation())
                     .setTitle(list.get(i).getTitle())
                     .build();
