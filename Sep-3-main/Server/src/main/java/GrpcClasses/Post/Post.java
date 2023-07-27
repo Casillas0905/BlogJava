@@ -73,16 +73,10 @@ public final class Post {
         getImageUrlBytes();
 
     /**
-     * <code>string location = 7;</code>
+     * <code>int32 location = 7;</code>
      * @return The location.
      */
-    java.lang.String getLocation();
-    /**
-     * <code>string location = 7;</code>
-     * @return The bytes for location.
-     */
-    com.google.protobuf.ByteString
-        getLocationBytes();
+    int getLocation();
   }
   /**
    * Protobuf type {@code GrpcClasses.Post.PostModelGrpc}
@@ -100,7 +94,6 @@ public final class Post {
       title_ = "";
       description_ = "";
       imageUrl_ = "";
-      location_ = "";
     }
 
     @java.lang.Override
@@ -166,10 +159,9 @@ public final class Post {
               imageUrl_ = s;
               break;
             }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 56: {
 
-              location_ = s;
+              location_ = input.readInt32();
               break;
             }
             default: {
@@ -354,41 +346,14 @@ public final class Post {
     }
 
     public static final int LOCATION_FIELD_NUMBER = 7;
-    private volatile java.lang.Object location_;
+    private int location_;
     /**
-     * <code>string location = 7;</code>
+     * <code>int32 location = 7;</code>
      * @return The location.
      */
     @java.lang.Override
-    public java.lang.String getLocation() {
-      java.lang.Object ref = location_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        location_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string location = 7;</code>
-     * @return The bytes for location.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getLocationBytes() {
-      java.lang.Object ref = location_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        location_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getLocation() {
+      return location_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -423,8 +388,8 @@ public final class Post {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageUrl_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, imageUrl_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, location_);
+      if (location_ != 0) {
+        output.writeInt32(7, location_);
       }
       unknownFields.writeTo(output);
     }
@@ -456,8 +421,9 @@ public final class Post {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageUrl_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, imageUrl_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, location_);
+      if (location_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, location_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -486,8 +452,8 @@ public final class Post {
           .equals(other.getDescription())) return false;
       if (!getImageUrl()
           .equals(other.getImageUrl())) return false;
-      if (!getLocation()
-          .equals(other.getLocation())) return false;
+      if (getLocation()
+          != other.getLocation()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -512,7 +478,7 @@ public final class Post {
       hash = (37 * hash) + IMAGEURL_FIELD_NUMBER;
       hash = (53 * hash) + getImageUrl().hashCode();
       hash = (37 * hash) + LOCATION_FIELD_NUMBER;
-      hash = (53 * hash) + getLocation().hashCode();
+      hash = (53 * hash) + getLocation();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -658,7 +624,7 @@ public final class Post {
 
         imageUrl_ = "";
 
-        location_ = "";
+        location_ = 0;
 
         return this;
       }
@@ -762,9 +728,8 @@ public final class Post {
           imageUrl_ = other.imageUrl_;
           onChanged();
         }
-        if (!other.getLocation().isEmpty()) {
-          location_ = other.location_;
-          onChanged();
+        if (other.getLocation() != 0) {
+          setLocation(other.getLocation());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1116,78 +1081,33 @@ public final class Post {
         return this;
       }
 
-      private java.lang.Object location_ = "";
+      private int location_ ;
       /**
-       * <code>string location = 7;</code>
+       * <code>int32 location = 7;</code>
        * @return The location.
        */
-      public java.lang.String getLocation() {
-        java.lang.Object ref = location_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          location_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getLocation() {
+        return location_;
       }
       /**
-       * <code>string location = 7;</code>
-       * @return The bytes for location.
-       */
-      public com.google.protobuf.ByteString
-          getLocationBytes() {
-        java.lang.Object ref = location_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          location_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string location = 7;</code>
+       * <code>int32 location = 7;</code>
        * @param value The location to set.
        * @return This builder for chaining.
        */
-      public Builder setLocation(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setLocation(int value) {
+        
         location_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string location = 7;</code>
+       * <code>int32 location = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearLocation() {
         
-        location_ = getDefaultInstance().getLocation();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string location = 7;</code>
-       * @param value The bytes for location to set.
-       * @return This builder for chaining.
-       */
-      public Builder setLocationBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        location_ = value;
+        location_ = 0;
         onChanged();
         return this;
       }
@@ -3702,7 +3622,7 @@ public final class Post {
       "odelGrpc\022\n\n\002id\030\001 \001(\005\022\016\n\006userId\030\002 \001(\005\022\020\n\010" +
       "category\030\003 \001(\005\022\r\n\005title\030\004 \001(\t\022\023\n\013descrip" +
       "tion\030\005 \001(\t\022\020\n\010imageUrl\030\006 \001(\t\022\020\n\010location" +
-      "\030\007 \001(\t\"\025\n\007GetById\022\n\n\002id\030\001 \001(\005\"\033\n\nGetByTi" +
+      "\030\007 \001(\005\"\025\n\007GetById\022\n\n\002id\030\001 \001(\005\"\033\n\nGetByTi" +
       "tle\022\r\n\005title\030\001 \001(\t\"U\n\020SearchParameters\022\r" +
       "\n\005title\030\001 \001(\t\022\020\n\010location\030\002 \001(\t\022\020\n\010categ" +
       "ory\030\003 \001(\t\022\016\n\006userId\030\004 \001(\005\"\007\n\005Empty2\331\003\n\010P" +

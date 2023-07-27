@@ -12,7 +12,7 @@ public class PostModel {
     @JoinColumn(name = "user_id")
     private UserModel user;
     @ManyToOne
-    @JoinColumn(name = "ctaegory_id")
+    @JoinColumn(name = "category_id")
     private CategoryModel category;
     @Column
     private String title;
@@ -20,13 +20,14 @@ public class PostModel {
     private String description;
     @Column
     private String imageUrl;
-    @Column
-    private String location;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private LocationModel location;
 
     public PostModel() {
     }
 
-    public PostModel(int id, UserModel user, CategoryModel category, String title, String description, String imageUrl, String location) {
+    public PostModel(int id, UserModel user, CategoryModel category, String title, String description, String imageUrl, LocationModel location) {
         this.id = id;
         this.user = user;
         this.category = category;
@@ -84,11 +85,11 @@ public class PostModel {
         this.imageUrl = imageUrl;
     }
 
-    public String getLocation() {
+    public LocationModel getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(LocationModel location) {
         this.location = location;
     }
 }

@@ -8,4 +8,5 @@ import java.util.List;
 public interface CategoryService {
     CategoryModel findById(int id);
     List<CategoryModel> findAll();
+    void save(CategoryModel categoryModel);
 }

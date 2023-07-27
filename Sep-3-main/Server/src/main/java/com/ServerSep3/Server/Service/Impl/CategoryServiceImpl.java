@@ -24,4 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<CategoryModel> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public void save(CategoryModel categoryModel) {
+        repository.save(categoryModel);
+    }
 }

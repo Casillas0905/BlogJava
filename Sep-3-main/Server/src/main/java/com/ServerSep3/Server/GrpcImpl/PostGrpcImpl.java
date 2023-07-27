@@ -3,11 +3,9 @@ package com.ServerSep3.Server.GrpcImpl;
 import GrpcClasses.Post.Post;
 import GrpcClasses.Post.PostGrpcGrpc;
 import GrpcClasses.User.User;
-import com.ServerSep3.Server.Model.CategoryModel;
-import com.ServerSep3.Server.Model.PostModel;
-import com.ServerSep3.Server.Model.SearchParameters;
-import com.ServerSep3.Server.Model.UserModel;
+import com.ServerSep3.Server.Model.*;
 import com.ServerSep3.Server.Service.CategoryService;
+import com.ServerSep3.Server.Service.LocationService;
 import com.ServerSep3.Server.Service.PostService;
 import com.ServerSep3.Server.Service.UserService;
 import io.grpc.stub.StreamObserver;
@@ -30,6 +28,9 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    LocationService locationService;
+
     public PostGrpcImpl() {
     }
 
@@ -37,13 +38,14 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
     public void createPost(Post.PostModelGrpc request, StreamObserver<Post.Empty> responseObserver) {
         UserModel user= userService.findById(request.getUserId());
         CategoryModel category= categoryService.findById(request.getCategory());
+        LocationModel location= locationService.findById(request.getLocation());
         PostModel postModel= new PostModel(request.getId(),
                 user,
                 category,
                 request.getTitle(),
                 request.getDescription(),
                 request.getImageUrl(),
-                request.getLocation());
+                location);
         postService.createPost(postModel);
         Post.Empty empty = Post.Empty.newBuilder().build();
         responseObserver.onNext(empty);
@@ -61,7 +63,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setDescription("niull")
                     .setImageUrl("niull")
                     .setUserId(0)
-                    .setLocation("niull")
+                    .setLocation(0)
                     .setTitle("niull")
                     .build();
             responseObserver.onNext(response);
@@ -74,7 +76,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setDescription(model.getDescription())
                     .setImageUrl(model.getImageUrl())
                     .setUserId(model.getUser().getId())
-                    .setLocation(model.getLocation())
+                    .setLocation(model.getLocation().getId())
                     .setTitle(model.getTitle())
                     .build();
             responseObserver.onNext(response);
@@ -86,13 +88,14 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
     public void updatePost(Post.PostModelGrpc request, StreamObserver<Post.Empty> responseObserver) {
         UserModel user= userService.findById(request.getUserId());
         CategoryModel category= categoryService.findById(request.getCategory());
+        LocationModel location= locationService.findById(request.getLocation());
         PostModel postModel= new PostModel(request.getId(),
                 user,
                 category,
                 request.getTitle(),
                 request.getDescription(),
                 request.getImageUrl(),
-                request.getLocation());
+                location);
         postService.updatePost(postModel);
         Post.Empty empty = Post.Empty.newBuilder().build();
         responseObserver.onNext(empty);
@@ -126,7 +129,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setDescription(list.get(i).getDescription())
                     .setImageUrl(list.get(i).getImageUrl())
                     .setUserId(list.get(i).getUser().getId())
-                    .setLocation(list.get(i).getLocation())
+                    .setLocation(list.get(i).getLocation().getId())
                     .setTitle(list.get(i).getTitle())
                     .build();
             listGrpc.add(post);
@@ -147,7 +150,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
                     .setDescription(list.get(i).getDescription())
                     .setImageUrl(list.get(i).getImageUrl())
                     .setUserId(list.get(i).getUser().getId())
-                    .setLocation(list.get(i).getLocation())
+                    .setLocation(list.get(i).getLocation().getId())
                     .setTitle(list.get(i).getTitle())
                     .build();
             listGrpc.add(post);

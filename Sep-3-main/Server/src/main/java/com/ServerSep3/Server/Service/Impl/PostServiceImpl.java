@@ -48,7 +48,7 @@ public class PostServiceImpl implements PostService {
         }
         if(!(parameters.getLocation() == null)){
             for (int j=0;j<list.size();j++){
-                if(!(list.get(j).getLocation().toLowerCase().equals(parameters.getLocation().toLowerCase()))){
+                if(!(list.get(j).getLocation().getLocation().toLowerCase().equals(parameters.getLocation().toLowerCase()))){
                     list.remove(j);
                 }
             }
