@@ -5,6 +5,7 @@ import com.ServerSep3.Server.Model.SaveModel;
 import java.util.List;
 
 public interface SaveService {
-    List<SaveService> findByUserId(int userId);
+    List<SaveModel> findByUserId(int userId);
     void saveSave(SaveModel saveModel);
+    void deleteSaveById(int id);
 }

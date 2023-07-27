@@ -7,6 +7,8 @@ import com.ServerSep3.Server.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -16,5 +18,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryModel findById(int id) {
         return repository.findById(id);
+    }
+
+    @Override
+    public List<CategoryModel> findAll() {
+        return repository.findAll();
     }
 }

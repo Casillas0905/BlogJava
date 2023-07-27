@@ -5,6 +5,7 @@ import com.ServerSep3.Server.Model.FollowUserModel;
 import java.util.List;
 
 public interface FollowUserService {
-    List<FollowUserModel> findByUserFollowingId(int id);
-    void saveFollow(FollowUserModel followUserModel);
+    List<FollowUserModel> findByUserFollowingId(int followedUserId, int followingUserId);
+    void saveFollowUser(FollowUserModel followUserModel);
+    void deleteById(int id);
 }

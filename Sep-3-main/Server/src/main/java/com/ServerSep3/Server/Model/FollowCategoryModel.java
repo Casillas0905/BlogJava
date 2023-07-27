@@ -11,18 +11,18 @@ public class FollowCategoryModel {
     private int id;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel userFollowed;
+    private UserModel userFollowing;
     @ManyToOne
     @JoinColumn(name = "post_Id")
-    private PostModel postFollowing;
+    private PostModel postFollowed;
 
     public FollowCategoryModel() {
     }
 
-    public FollowCategoryModel(int id, UserModel userFollowed, PostModel userFollowing) {
+    public FollowCategoryModel(int id, UserModel userFollowing, PostModel postFollowed) {
         this.id = id;
-        this.userFollowed = userFollowed;
-        this.postFollowing = userFollowing;
+        this.userFollowing = userFollowing;
+        this.postFollowed = postFollowed;
     }
 
     public int getId() {
@@ -33,19 +33,19 @@ public class FollowCategoryModel {
         this.id = id;
     }
 
-    public UserModel getUserFollowed() {
-        return userFollowed;
+    public UserModel getUserFollowing() {
+        return userFollowing;
     }
 
-    public void setUserFollowed(UserModel userFollowed) {
-        this.userFollowed = userFollowed;
+    public void setUserFollowing(UserModel userFollowing) {
+        this.userFollowing = userFollowing;
     }
 
-    public PostModel getPostFollowing() {
-        return postFollowing;
+    public PostModel getPostFollowed() {
+        return postFollowed;
     }
 
-    public void setPostFollowing(PostModel postFollowing) {
-        this.postFollowing = postFollowing;
+    public void setPostFollowed(PostModel postFollowed) {
+        this.postFollowed = postFollowed;
     }
 }
