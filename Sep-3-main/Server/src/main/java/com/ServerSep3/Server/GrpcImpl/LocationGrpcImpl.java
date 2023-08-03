@@ -1,6 +1,7 @@
 package com.ServerSep3.Server.GrpcImpl;
 
 import GrpcClasses.Category.Category;
+import GrpcClasses.Comment.Comment;
 import GrpcClasses.Location.Location;
 import GrpcClasses.Location.LocationGrpcGrpc;
 import com.ServerSep3.Server.Model.CategoryModel;
@@ -26,6 +27,9 @@ public class LocationGrpcImpl extends LocationGrpcGrpc.LocationGrpcImplBase {
     @Override
     public void saveLocation(Location.LocationModelGrpc request, StreamObserver<Location.Empty> responseObserver) {
         locationService.save(new LocationModel(request.getLocation(), request.getId()));
+        Location.Empty empty = Location.Empty.newBuilder().build();
+        responseObserver.onNext(empty);
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class LocationGrpcImpl extends LocationGrpcGrpc.LocationGrpcImplBase {
     }
 
     @Override
-    public void findById(Location.GetByPostId request, StreamObserver<Location.LocationModelGrpc> responseObserver) {
+    public void findById(Location.GetById request, StreamObserver<Location.LocationModelGrpc> responseObserver) {
         LocationModel model=locationService.findById(request.getId());
         if (model == null){
             System.out.println("its null");

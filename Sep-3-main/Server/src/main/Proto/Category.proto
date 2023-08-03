@@ -5,10 +5,10 @@ package GrpcClasses.Category;
 service CategoryGrpc{
   rpc saveCategory(CategoryModelGrpc) returns (Empty){}
   rpc findAll(Empty) returns(stream CategoryModelGrpc);
-  rpc findById(GetByPostId) returns(CategoryModelGrpc);
+  rpc findById(GetById) returns(CategoryModelGrpc);
 }
 
-message GetByPostId{
+message GetById{
   int32 id=1;
 }
 

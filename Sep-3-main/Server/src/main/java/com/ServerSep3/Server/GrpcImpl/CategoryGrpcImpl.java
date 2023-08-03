@@ -2,6 +2,7 @@ package com.ServerSep3.Server.GrpcImpl;
 
 import GrpcClasses.Category.Category;
 import GrpcClasses.Category.CategoryGrpcGrpc;
+import GrpcClasses.Comment.Comment;
 import GrpcClasses.Post.Post;
 import GrpcClasses.User.User;
 import com.ServerSep3.Server.Model.CategoryModel;
@@ -29,6 +30,9 @@ public class CategoryGrpcImpl extends CategoryGrpcGrpc.CategoryGrpcImplBase {
     public void saveCategory(Category.CategoryModelGrpc request, StreamObserver<Category.Empty> responseObserver) {
         CategoryModel categoryModel= new CategoryModel(request.getCategory(), request.getId());
         categoryService.save(categoryModel);
+        Category.Empty empty = Category.Empty.newBuilder().build();
+        responseObserver.onNext(empty);
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -49,8 +53,10 @@ public class CategoryGrpcImpl extends CategoryGrpcGrpc.CategoryGrpcImplBase {
     }
 
     @Override
-    public void findById(Category.GetByPostId request, StreamObserver<Category.CategoryModelGrpc> responseObserver) {
+    public void findById(Category.GetById request, StreamObserver<Category.CategoryModelGrpc> responseObserver) {
+        System.out.println("Id:"+ request.getId());
         CategoryModel model=categoryService.findById(request.getId());
+        System.out.println("Category");
         if (model == null){
             System.out.println("its null");
             Category.CategoryModelGrpc response= Category.CategoryModelGrpc.newBuilder()

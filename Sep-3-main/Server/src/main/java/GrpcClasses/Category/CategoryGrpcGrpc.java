@@ -76,27 +76,27 @@ public final class CategoryGrpcGrpc {
     return getFindAllMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<GrpcClasses.Category.Category.GetByPostId,
+  private static volatile io.grpc.MethodDescriptor<GrpcClasses.Category.Category.GetById,
       GrpcClasses.Category.Category.CategoryModelGrpc> getFindByIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "findById",
-      requestType = GrpcClasses.Category.Category.GetByPostId.class,
+      requestType = GrpcClasses.Category.Category.GetById.class,
       responseType = GrpcClasses.Category.Category.CategoryModelGrpc.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<GrpcClasses.Category.Category.GetByPostId,
+  public static io.grpc.MethodDescriptor<GrpcClasses.Category.Category.GetById,
       GrpcClasses.Category.Category.CategoryModelGrpc> getFindByIdMethod() {
-    io.grpc.MethodDescriptor<GrpcClasses.Category.Category.GetByPostId, GrpcClasses.Category.Category.CategoryModelGrpc> getFindByIdMethod;
+    io.grpc.MethodDescriptor<GrpcClasses.Category.Category.GetById, GrpcClasses.Category.Category.CategoryModelGrpc> getFindByIdMethod;
     if ((getFindByIdMethod = CategoryGrpcGrpc.getFindByIdMethod) == null) {
       synchronized (CategoryGrpcGrpc.class) {
         if ((getFindByIdMethod = CategoryGrpcGrpc.getFindByIdMethod) == null) {
           CategoryGrpcGrpc.getFindByIdMethod = getFindByIdMethod =
-              io.grpc.MethodDescriptor.<GrpcClasses.Category.Category.GetByPostId, GrpcClasses.Category.Category.CategoryModelGrpc>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcClasses.Category.Category.GetById, GrpcClasses.Category.Category.CategoryModelGrpc>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "findById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.Category.Category.GetByPostId.getDefaultInstance()))
+                  GrpcClasses.Category.Category.GetById.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   GrpcClasses.Category.Category.CategoryModelGrpc.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryGrpcMethodDescriptorSupplier("findById"))
@@ -171,7 +171,7 @@ public final class CategoryGrpcGrpc {
 
     /**
      */
-    public void findById(GrpcClasses.Category.Category.GetByPostId request,
+    public void findById(GrpcClasses.Category.Category.GetById request,
         io.grpc.stub.StreamObserver<GrpcClasses.Category.Category.CategoryModelGrpc> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindByIdMethod(), responseObserver);
     }
@@ -196,7 +196,7 @@ public final class CategoryGrpcGrpc {
             getFindByIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                GrpcClasses.Category.Category.GetByPostId,
+                GrpcClasses.Category.Category.GetById,
                 GrpcClasses.Category.Category.CategoryModelGrpc>(
                   this, METHODID_FIND_BY_ID)))
           .build();
@@ -235,7 +235,7 @@ public final class CategoryGrpcGrpc {
 
     /**
      */
-    public void findById(GrpcClasses.Category.Category.GetByPostId request,
+    public void findById(GrpcClasses.Category.Category.GetById request,
         io.grpc.stub.StreamObserver<GrpcClasses.Category.Category.CategoryModelGrpc> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request, responseObserver);
@@ -273,7 +273,7 @@ public final class CategoryGrpcGrpc {
 
     /**
      */
-    public GrpcClasses.Category.Category.CategoryModelGrpc findById(GrpcClasses.Category.Category.GetByPostId request) {
+    public GrpcClasses.Category.Category.CategoryModelGrpc findById(GrpcClasses.Category.Category.GetById request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFindByIdMethod(), getCallOptions(), request);
     }
@@ -304,7 +304,7 @@ public final class CategoryGrpcGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<GrpcClasses.Category.Category.CategoryModelGrpc> findById(
-        GrpcClasses.Category.Category.GetByPostId request) {
+        GrpcClasses.Category.Category.GetById request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request);
     }
@@ -340,7 +340,7 @@ public final class CategoryGrpcGrpc {
               (io.grpc.stub.StreamObserver<GrpcClasses.Category.Category.CategoryModelGrpc>) responseObserver);
           break;
         case METHODID_FIND_BY_ID:
-          serviceImpl.findById((GrpcClasses.Category.Category.GetByPostId) request,
+          serviceImpl.findById((GrpcClasses.Category.Category.GetById) request,
               (io.grpc.stub.StreamObserver<GrpcClasses.Category.Category.CategoryModelGrpc>) responseObserver);
           break;
         default:

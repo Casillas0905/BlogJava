@@ -34,34 +34,23 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostModel> findByParameters(SearchParameters parameters) {
-        List<PostModel> list= new ArrayList<>();
-        if (!(parameters.getTitle() == null)){
-            list=postRepository.findByTitle(parameters.getTitle());}
-        else {list= postRepository.findAll();}
+            List<PostModel> list = new ArrayList<>();
+            boolean filterByTitle = parameters.getTitle() != null;
+            boolean filterByCategory = parameters.getCategory() != null;
+            boolean filterByLocation = parameters.getLocation() != null;
+            boolean filterByUserId = parameters.getUserId() != 0;
 
-        if(!(parameters.getCategory() == null)){
-            for (int i=0;i<list.size();i++){
-                if(!(list.get(i).getCategory().getCategory().toLowerCase().equals(parameters.getCategory().toLowerCase()))){
-                    list.remove(i);
+            for (PostModel post : postRepository.findAll()) {
+                if ((!filterByTitle || post.getTitle().equalsIgnoreCase(parameters.getTitle()))
+                        && (!filterByCategory || post.getCategory().getCategory().equalsIgnoreCase(parameters.getCategory()))
+                        && (!filterByLocation || post.getLocation().getLocation().equalsIgnoreCase(parameters.getLocation()))
+                        && (!filterByUserId || post.getUser().getId() == parameters.getUserId())) {
+                    list.add(post);
                 }
             }
+
+            return list;
         }
-        if(!(parameters.getLocation() == null)){
-            for (int j=0;j<list.size();j++){
-                if(!(list.get(j).getLocation().getLocation().toLowerCase().equals(parameters.getLocation().toLowerCase()))){
-                    list.remove(j);
-                }
-            }
-        }
-        if(!(parameters.getUserId() == 0)){
-            for (int j=0;j<list.size();j++){
-                if(!(list.get(j).getUser().getId() == parameters.getUserId())){
-                    list.remove(j);
-                }
-            }
-        }
-        return list;
-    }
 
     @Override
     public PostModel findById(int id) {
@@ -75,6 +64,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostModel updatePost(PostModel postModel) {
+        System.out.println("Id:"+postModel.getId());
         PostModel existing= postRepository.findById(postModel.getId());
         existing.setCategory(postModel.getCategory());
         existing.setLocation(postModel.getLocation());

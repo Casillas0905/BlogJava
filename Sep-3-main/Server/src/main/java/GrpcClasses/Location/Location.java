@@ -14,8 +14,8 @@ public final class Location {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface GetByPostIdOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GrpcClasses.Location.GetByPostId)
+  public interface GetByIdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GrpcClasses.Location.GetById)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -25,25 +25,25 @@ public final class Location {
     int getId();
   }
   /**
-   * Protobuf type {@code GrpcClasses.Location.GetByPostId}
+   * Protobuf type {@code GrpcClasses.Location.GetById}
    */
-  public static final class GetByPostId extends
+  public static final class GetById extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GrpcClasses.Location.GetByPostId)
-      GetByPostIdOrBuilder {
+      // @@protoc_insertion_point(message_implements:GrpcClasses.Location.GetById)
+      GetByIdOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use GetByPostId.newBuilder() to construct.
-    private GetByPostId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetById.newBuilder() to construct.
+    private GetById(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private GetByPostId() {
+    private GetById() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new GetByPostId();
+      return new GetById();
     }
 
     @java.lang.Override
@@ -51,7 +51,7 @@ public final class Location {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetByPostId(
+    private GetById(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -97,15 +97,15 @@ public final class Location {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetByPostId_descriptor;
+      return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetById_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetByPostId_fieldAccessorTable
+      return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetById_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              GrpcClasses.Location.Location.GetByPostId.class, GrpcClasses.Location.Location.GetByPostId.Builder.class);
+              GrpcClasses.Location.Location.GetById.class, GrpcClasses.Location.Location.GetById.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -159,10 +159,10 @@ public final class Location {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof GrpcClasses.Location.Location.GetByPostId)) {
+      if (!(obj instanceof GrpcClasses.Location.Location.GetById)) {
         return super.equals(obj);
       }
-      GrpcClasses.Location.Location.GetByPostId other = (GrpcClasses.Location.Location.GetByPostId) obj;
+      GrpcClasses.Location.Location.GetById other = (GrpcClasses.Location.Location.GetById) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -184,69 +184,69 @@ public final class Location {
       return hash;
     }
 
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(byte[] data)
+    public static GrpcClasses.Location.Location.GetById parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(java.io.InputStream input)
+    public static GrpcClasses.Location.Location.GetById parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseDelimitedFrom(java.io.InputStream input)
+    public static GrpcClasses.Location.Location.GetById parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseDelimitedFrom(
+    public static GrpcClasses.Location.Location.GetById parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static GrpcClasses.Location.Location.GetByPostId parseFrom(
+    public static GrpcClasses.Location.Location.GetById parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -259,7 +259,7 @@ public final class Location {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(GrpcClasses.Location.Location.GetByPostId prototype) {
+    public static Builder newBuilder(GrpcClasses.Location.Location.GetById prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -275,26 +275,26 @@ public final class Location {
       return builder;
     }
     /**
-     * Protobuf type {@code GrpcClasses.Location.GetByPostId}
+     * Protobuf type {@code GrpcClasses.Location.GetById}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GrpcClasses.Location.GetByPostId)
-        GrpcClasses.Location.Location.GetByPostIdOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GrpcClasses.Location.GetById)
+        GrpcClasses.Location.Location.GetByIdOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetByPostId_descriptor;
+        return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetById_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetByPostId_fieldAccessorTable
+        return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetById_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                GrpcClasses.Location.Location.GetByPostId.class, GrpcClasses.Location.Location.GetByPostId.Builder.class);
+                GrpcClasses.Location.Location.GetById.class, GrpcClasses.Location.Location.GetById.Builder.class);
       }
 
-      // Construct using GrpcClasses.Location.Location.GetByPostId.newBuilder()
+      // Construct using GrpcClasses.Location.Location.GetById.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -320,17 +320,17 @@ public final class Location {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetByPostId_descriptor;
+        return GrpcClasses.Location.Location.internal_static_GrpcClasses_Location_GetById_descriptor;
       }
 
       @java.lang.Override
-      public GrpcClasses.Location.Location.GetByPostId getDefaultInstanceForType() {
-        return GrpcClasses.Location.Location.GetByPostId.getDefaultInstance();
+      public GrpcClasses.Location.Location.GetById getDefaultInstanceForType() {
+        return GrpcClasses.Location.Location.GetById.getDefaultInstance();
       }
 
       @java.lang.Override
-      public GrpcClasses.Location.Location.GetByPostId build() {
-        GrpcClasses.Location.Location.GetByPostId result = buildPartial();
+      public GrpcClasses.Location.Location.GetById build() {
+        GrpcClasses.Location.Location.GetById result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -338,8 +338,8 @@ public final class Location {
       }
 
       @java.lang.Override
-      public GrpcClasses.Location.Location.GetByPostId buildPartial() {
-        GrpcClasses.Location.Location.GetByPostId result = new GrpcClasses.Location.Location.GetByPostId(this);
+      public GrpcClasses.Location.Location.GetById buildPartial() {
+        GrpcClasses.Location.Location.GetById result = new GrpcClasses.Location.Location.GetById(this);
         result.id_ = id_;
         onBuilt();
         return result;
@@ -379,16 +379,16 @@ public final class Location {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof GrpcClasses.Location.Location.GetByPostId) {
-          return mergeFrom((GrpcClasses.Location.Location.GetByPostId)other);
+        if (other instanceof GrpcClasses.Location.Location.GetById) {
+          return mergeFrom((GrpcClasses.Location.Location.GetById)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(GrpcClasses.Location.Location.GetByPostId other) {
-        if (other == GrpcClasses.Location.Location.GetByPostId.getDefaultInstance()) return this;
+      public Builder mergeFrom(GrpcClasses.Location.Location.GetById other) {
+        if (other == GrpcClasses.Location.Location.GetById.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
         }
@@ -407,11 +407,11 @@ public final class Location {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        GrpcClasses.Location.Location.GetByPostId parsedMessage = null;
+        GrpcClasses.Location.Location.GetById parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (GrpcClasses.Location.Location.GetByPostId) e.getUnfinishedMessage();
+          parsedMessage = (GrpcClasses.Location.Location.GetById) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -464,41 +464,41 @@ public final class Location {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GrpcClasses.Location.GetByPostId)
+      // @@protoc_insertion_point(builder_scope:GrpcClasses.Location.GetById)
     }
 
-    // @@protoc_insertion_point(class_scope:GrpcClasses.Location.GetByPostId)
-    private static final GrpcClasses.Location.Location.GetByPostId DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GrpcClasses.Location.GetById)
+    private static final GrpcClasses.Location.Location.GetById DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new GrpcClasses.Location.Location.GetByPostId();
+      DEFAULT_INSTANCE = new GrpcClasses.Location.Location.GetById();
     }
 
-    public static GrpcClasses.Location.Location.GetByPostId getDefaultInstance() {
+    public static GrpcClasses.Location.Location.GetById getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<GetByPostId>
-        PARSER = new com.google.protobuf.AbstractParser<GetByPostId>() {
+    private static final com.google.protobuf.Parser<GetById>
+        PARSER = new com.google.protobuf.AbstractParser<GetById>() {
       @java.lang.Override
-      public GetByPostId parsePartialFrom(
+      public GetById parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetByPostId(input, extensionRegistry);
+        return new GetById(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<GetByPostId> parser() {
+    public static com.google.protobuf.Parser<GetById> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetByPostId> getParserForType() {
+    public com.google.protobuf.Parser<GetById> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public GrpcClasses.Location.Location.GetByPostId getDefaultInstanceForType() {
+    public GrpcClasses.Location.Location.GetById getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1565,10 +1565,10 @@ public final class Location {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GrpcClasses_Location_GetByPostId_descriptor;
+    internal_static_GrpcClasses_Location_GetById_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GrpcClasses_Location_GetByPostId_fieldAccessorTable;
+      internal_static_GrpcClasses_Location_GetById_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GrpcClasses_Location_LocationModelGrpc_descriptor;
   private static final 
@@ -1588,27 +1588,27 @@ public final class Location {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Location.proto\022\024GrpcClasses.Location\"\031" +
-      "\n\013GetByPostId\022\n\n\002id\030\001 \001(\005\"1\n\021LocationMod" +
-      "elGrpc\022\020\n\010location\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\007\n\005" +
-      "Empty2\221\002\n\014LocationGrpc\022V\n\014saveLocation\022\'" +
-      ".GrpcClasses.Location.LocationModelGrpc\032" +
-      "\033.GrpcClasses.Location.Empty\"\000\022Q\n\007findAl" +
-      "l\022\033.GrpcClasses.Location.Empty\032\'.GrpcCla" +
-      "sses.Location.LocationModelGrpc0\001\022V\n\010fin" +
-      "dById\022!.GrpcClasses.Location.GetByPostId" +
-      "\032\'.GrpcClasses.Location.LocationModelGrp" +
-      "cb\006proto3"
+      "\n\016Location.proto\022\024GrpcClasses.Location\"\025" +
+      "\n\007GetById\022\n\n\002id\030\001 \001(\005\"1\n\021LocationModelGr" +
+      "pc\022\020\n\010location\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\007\n\005Empt" +
+      "y2\215\002\n\014LocationGrpc\022V\n\014saveLocation\022\'.Grp" +
+      "cClasses.Location.LocationModelGrpc\032\033.Gr" +
+      "pcClasses.Location.Empty\"\000\022Q\n\007findAll\022\033." +
+      "GrpcClasses.Location.Empty\032\'.GrpcClasses" +
+      ".Location.LocationModelGrpc0\001\022R\n\010findByI" +
+      "d\022\035.GrpcClasses.Location.GetById\032\'.GrpcC" +
+      "lasses.Location.LocationModelGrpcb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_GrpcClasses_Location_GetByPostId_descriptor =
+    internal_static_GrpcClasses_Location_GetById_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_GrpcClasses_Location_GetByPostId_fieldAccessorTable = new
+    internal_static_GrpcClasses_Location_GetById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GrpcClasses_Location_GetByPostId_descriptor,
+        internal_static_GrpcClasses_Location_GetById_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_GrpcClasses_Location_LocationModelGrpc_descriptor =
       getDescriptor().getMessageTypes().get(1);

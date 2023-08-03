@@ -23,7 +23,7 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
     @Override
     public void saveUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) {
-        Date date=new Date(request.getYear()-1900,request.getMonth()-1, request.getDay());
+        Date date=new Date(request.getYear(),request.getMonth(), request.getDay());
         System.out.println(date.getDay());
         System.out.println(date.getMonth());
         System.out.println(date.getYear());
@@ -43,6 +43,7 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
     @Override
     public void findById(User.GetById request, StreamObserver<User.UserModelGrpc> responseObserver) {
         UserModel model=userService.findById(request.getId());
+        System.out.println("Category");
         if (model == null){
             System.out.println("its null");
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()

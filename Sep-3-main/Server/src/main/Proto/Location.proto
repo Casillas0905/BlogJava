@@ -5,10 +5,10 @@ package GrpcClasses.Location;
 service LocationGrpc{
   rpc saveLocation(LocationModelGrpc) returns (Empty){}
   rpc findAll(Empty) returns(stream LocationModelGrpc);
-  rpc findById(GetByPostId) returns(LocationModelGrpc);
+  rpc findById(GetById) returns(LocationModelGrpc);
 }
 
-message GetByPostId{
+message GetById{
   int32 id=1;
 }
 

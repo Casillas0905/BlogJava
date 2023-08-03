@@ -76,27 +76,27 @@ public final class LocationGrpcGrpc {
     return getFindAllMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<GrpcClasses.Location.Location.GetByPostId,
+  private static volatile io.grpc.MethodDescriptor<GrpcClasses.Location.Location.GetById,
       GrpcClasses.Location.Location.LocationModelGrpc> getFindByIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "findById",
-      requestType = GrpcClasses.Location.Location.GetByPostId.class,
+      requestType = GrpcClasses.Location.Location.GetById.class,
       responseType = GrpcClasses.Location.Location.LocationModelGrpc.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<GrpcClasses.Location.Location.GetByPostId,
+  public static io.grpc.MethodDescriptor<GrpcClasses.Location.Location.GetById,
       GrpcClasses.Location.Location.LocationModelGrpc> getFindByIdMethod() {
-    io.grpc.MethodDescriptor<GrpcClasses.Location.Location.GetByPostId, GrpcClasses.Location.Location.LocationModelGrpc> getFindByIdMethod;
+    io.grpc.MethodDescriptor<GrpcClasses.Location.Location.GetById, GrpcClasses.Location.Location.LocationModelGrpc> getFindByIdMethod;
     if ((getFindByIdMethod = LocationGrpcGrpc.getFindByIdMethod) == null) {
       synchronized (LocationGrpcGrpc.class) {
         if ((getFindByIdMethod = LocationGrpcGrpc.getFindByIdMethod) == null) {
           LocationGrpcGrpc.getFindByIdMethod = getFindByIdMethod =
-              io.grpc.MethodDescriptor.<GrpcClasses.Location.Location.GetByPostId, GrpcClasses.Location.Location.LocationModelGrpc>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcClasses.Location.Location.GetById, GrpcClasses.Location.Location.LocationModelGrpc>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "findById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.Location.Location.GetByPostId.getDefaultInstance()))
+                  GrpcClasses.Location.Location.GetById.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   GrpcClasses.Location.Location.LocationModelGrpc.getDefaultInstance()))
               .setSchemaDescriptor(new LocationGrpcMethodDescriptorSupplier("findById"))
@@ -171,7 +171,7 @@ public final class LocationGrpcGrpc {
 
     /**
      */
-    public void findById(GrpcClasses.Location.Location.GetByPostId request,
+    public void findById(GrpcClasses.Location.Location.GetById request,
         io.grpc.stub.StreamObserver<GrpcClasses.Location.Location.LocationModelGrpc> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindByIdMethod(), responseObserver);
     }
@@ -196,7 +196,7 @@ public final class LocationGrpcGrpc {
             getFindByIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                GrpcClasses.Location.Location.GetByPostId,
+                GrpcClasses.Location.Location.GetById,
                 GrpcClasses.Location.Location.LocationModelGrpc>(
                   this, METHODID_FIND_BY_ID)))
           .build();
@@ -235,7 +235,7 @@ public final class LocationGrpcGrpc {
 
     /**
      */
-    public void findById(GrpcClasses.Location.Location.GetByPostId request,
+    public void findById(GrpcClasses.Location.Location.GetById request,
         io.grpc.stub.StreamObserver<GrpcClasses.Location.Location.LocationModelGrpc> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request, responseObserver);
@@ -273,7 +273,7 @@ public final class LocationGrpcGrpc {
 
     /**
      */
-    public GrpcClasses.Location.Location.LocationModelGrpc findById(GrpcClasses.Location.Location.GetByPostId request) {
+    public GrpcClasses.Location.Location.LocationModelGrpc findById(GrpcClasses.Location.Location.GetById request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFindByIdMethod(), getCallOptions(), request);
     }
@@ -304,7 +304,7 @@ public final class LocationGrpcGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<GrpcClasses.Location.Location.LocationModelGrpc> findById(
-        GrpcClasses.Location.Location.GetByPostId request) {
+        GrpcClasses.Location.Location.GetById request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request);
     }
@@ -340,7 +340,7 @@ public final class LocationGrpcGrpc {
               (io.grpc.stub.StreamObserver<GrpcClasses.Location.Location.LocationModelGrpc>) responseObserver);
           break;
         case METHODID_FIND_BY_ID:
-          serviceImpl.findById((GrpcClasses.Location.Location.GetByPostId) request,
+          serviceImpl.findById((GrpcClasses.Location.Location.GetById) request,
               (io.grpc.stub.StreamObserver<GrpcClasses.Location.Location.LocationModelGrpc>) responseObserver);
           break;
         default:

@@ -14,8 +14,8 @@ public final class Category {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface GetByPostIdOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GrpcClasses.Category.GetByPostId)
+  public interface GetByIdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GrpcClasses.Category.GetById)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -25,25 +25,25 @@ public final class Category {
     int getId();
   }
   /**
-   * Protobuf type {@code GrpcClasses.Category.GetByPostId}
+   * Protobuf type {@code GrpcClasses.Category.GetById}
    */
-  public static final class GetByPostId extends
+  public static final class GetById extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GrpcClasses.Category.GetByPostId)
-      GetByPostIdOrBuilder {
+      // @@protoc_insertion_point(message_implements:GrpcClasses.Category.GetById)
+      GetByIdOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use GetByPostId.newBuilder() to construct.
-    private GetByPostId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetById.newBuilder() to construct.
+    private GetById(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private GetByPostId() {
+    private GetById() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new GetByPostId();
+      return new GetById();
     }
 
     @java.lang.Override
@@ -51,7 +51,7 @@ public final class Category {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetByPostId(
+    private GetById(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -97,15 +97,15 @@ public final class Category {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetByPostId_descriptor;
+      return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetById_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetByPostId_fieldAccessorTable
+      return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetById_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              GrpcClasses.Category.Category.GetByPostId.class, GrpcClasses.Category.Category.GetByPostId.Builder.class);
+              GrpcClasses.Category.Category.GetById.class, GrpcClasses.Category.Category.GetById.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -159,10 +159,10 @@ public final class Category {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof GrpcClasses.Category.Category.GetByPostId)) {
+      if (!(obj instanceof GrpcClasses.Category.Category.GetById)) {
         return super.equals(obj);
       }
-      GrpcClasses.Category.Category.GetByPostId other = (GrpcClasses.Category.Category.GetByPostId) obj;
+      GrpcClasses.Category.Category.GetById other = (GrpcClasses.Category.Category.GetById) obj;
 
       if (getId()
           != other.getId()) return false;
@@ -184,69 +184,69 @@ public final class Category {
       return hash;
     }
 
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(byte[] data)
+    public static GrpcClasses.Category.Category.GetById parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(java.io.InputStream input)
+    public static GrpcClasses.Category.Category.GetById parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseDelimitedFrom(java.io.InputStream input)
+    public static GrpcClasses.Category.Category.GetById parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseDelimitedFrom(
+    public static GrpcClasses.Category.Category.GetById parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static GrpcClasses.Category.Category.GetByPostId parseFrom(
+    public static GrpcClasses.Category.Category.GetById parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -259,7 +259,7 @@ public final class Category {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(GrpcClasses.Category.Category.GetByPostId prototype) {
+    public static Builder newBuilder(GrpcClasses.Category.Category.GetById prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -275,26 +275,26 @@ public final class Category {
       return builder;
     }
     /**
-     * Protobuf type {@code GrpcClasses.Category.GetByPostId}
+     * Protobuf type {@code GrpcClasses.Category.GetById}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GrpcClasses.Category.GetByPostId)
-        GrpcClasses.Category.Category.GetByPostIdOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GrpcClasses.Category.GetById)
+        GrpcClasses.Category.Category.GetByIdOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetByPostId_descriptor;
+        return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetById_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetByPostId_fieldAccessorTable
+        return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetById_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                GrpcClasses.Category.Category.GetByPostId.class, GrpcClasses.Category.Category.GetByPostId.Builder.class);
+                GrpcClasses.Category.Category.GetById.class, GrpcClasses.Category.Category.GetById.Builder.class);
       }
 
-      // Construct using GrpcClasses.Category.Category.GetByPostId.newBuilder()
+      // Construct using GrpcClasses.Category.Category.GetById.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -320,17 +320,17 @@ public final class Category {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetByPostId_descriptor;
+        return GrpcClasses.Category.Category.internal_static_GrpcClasses_Category_GetById_descriptor;
       }
 
       @java.lang.Override
-      public GrpcClasses.Category.Category.GetByPostId getDefaultInstanceForType() {
-        return GrpcClasses.Category.Category.GetByPostId.getDefaultInstance();
+      public GrpcClasses.Category.Category.GetById getDefaultInstanceForType() {
+        return GrpcClasses.Category.Category.GetById.getDefaultInstance();
       }
 
       @java.lang.Override
-      public GrpcClasses.Category.Category.GetByPostId build() {
-        GrpcClasses.Category.Category.GetByPostId result = buildPartial();
+      public GrpcClasses.Category.Category.GetById build() {
+        GrpcClasses.Category.Category.GetById result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -338,8 +338,8 @@ public final class Category {
       }
 
       @java.lang.Override
-      public GrpcClasses.Category.Category.GetByPostId buildPartial() {
-        GrpcClasses.Category.Category.GetByPostId result = new GrpcClasses.Category.Category.GetByPostId(this);
+      public GrpcClasses.Category.Category.GetById buildPartial() {
+        GrpcClasses.Category.Category.GetById result = new GrpcClasses.Category.Category.GetById(this);
         result.id_ = id_;
         onBuilt();
         return result;
@@ -379,16 +379,16 @@ public final class Category {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof GrpcClasses.Category.Category.GetByPostId) {
-          return mergeFrom((GrpcClasses.Category.Category.GetByPostId)other);
+        if (other instanceof GrpcClasses.Category.Category.GetById) {
+          return mergeFrom((GrpcClasses.Category.Category.GetById)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(GrpcClasses.Category.Category.GetByPostId other) {
-        if (other == GrpcClasses.Category.Category.GetByPostId.getDefaultInstance()) return this;
+      public Builder mergeFrom(GrpcClasses.Category.Category.GetById other) {
+        if (other == GrpcClasses.Category.Category.GetById.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
         }
@@ -407,11 +407,11 @@ public final class Category {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        GrpcClasses.Category.Category.GetByPostId parsedMessage = null;
+        GrpcClasses.Category.Category.GetById parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (GrpcClasses.Category.Category.GetByPostId) e.getUnfinishedMessage();
+          parsedMessage = (GrpcClasses.Category.Category.GetById) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -464,41 +464,41 @@ public final class Category {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GrpcClasses.Category.GetByPostId)
+      // @@protoc_insertion_point(builder_scope:GrpcClasses.Category.GetById)
     }
 
-    // @@protoc_insertion_point(class_scope:GrpcClasses.Category.GetByPostId)
-    private static final GrpcClasses.Category.Category.GetByPostId DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GrpcClasses.Category.GetById)
+    private static final GrpcClasses.Category.Category.GetById DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new GrpcClasses.Category.Category.GetByPostId();
+      DEFAULT_INSTANCE = new GrpcClasses.Category.Category.GetById();
     }
 
-    public static GrpcClasses.Category.Category.GetByPostId getDefaultInstance() {
+    public static GrpcClasses.Category.Category.GetById getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<GetByPostId>
-        PARSER = new com.google.protobuf.AbstractParser<GetByPostId>() {
+    private static final com.google.protobuf.Parser<GetById>
+        PARSER = new com.google.protobuf.AbstractParser<GetById>() {
       @java.lang.Override
-      public GetByPostId parsePartialFrom(
+      public GetById parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetByPostId(input, extensionRegistry);
+        return new GetById(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<GetByPostId> parser() {
+    public static com.google.protobuf.Parser<GetById> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetByPostId> getParserForType() {
+    public com.google.protobuf.Parser<GetById> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public GrpcClasses.Category.Category.GetByPostId getDefaultInstanceForType() {
+    public GrpcClasses.Category.Category.GetById getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1565,10 +1565,10 @@ public final class Category {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GrpcClasses_Category_GetByPostId_descriptor;
+    internal_static_GrpcClasses_Category_GetById_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GrpcClasses_Category_GetByPostId_fieldAccessorTable;
+      internal_static_GrpcClasses_Category_GetById_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GrpcClasses_Category_CategoryModelGrpc_descriptor;
   private static final 
@@ -1588,27 +1588,27 @@ public final class Category {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Category.proto\022\024GrpcClasses.Category\"\031" +
-      "\n\013GetByPostId\022\n\n\002id\030\001 \001(\005\"1\n\021CategoryMod" +
-      "elGrpc\022\020\n\010category\030\001 \001(\t\022\n\n\002id\030\004 \001(\005\"\007\n\005" +
-      "Empty2\221\002\n\014CategoryGrpc\022V\n\014saveCategory\022\'" +
-      ".GrpcClasses.Category.CategoryModelGrpc\032" +
-      "\033.GrpcClasses.Category.Empty\"\000\022Q\n\007findAl" +
-      "l\022\033.GrpcClasses.Category.Empty\032\'.GrpcCla" +
-      "sses.Category.CategoryModelGrpc0\001\022V\n\010fin" +
-      "dById\022!.GrpcClasses.Category.GetByPostId" +
-      "\032\'.GrpcClasses.Category.CategoryModelGrp" +
-      "cb\006proto3"
+      "\n\016Category.proto\022\024GrpcClasses.Category\"\025" +
+      "\n\007GetById\022\n\n\002id\030\001 \001(\005\"1\n\021CategoryModelGr" +
+      "pc\022\020\n\010category\030\001 \001(\t\022\n\n\002id\030\004 \001(\005\"\007\n\005Empt" +
+      "y2\215\002\n\014CategoryGrpc\022V\n\014saveCategory\022\'.Grp" +
+      "cClasses.Category.CategoryModelGrpc\032\033.Gr" +
+      "pcClasses.Category.Empty\"\000\022Q\n\007findAll\022\033." +
+      "GrpcClasses.Category.Empty\032\'.GrpcClasses" +
+      ".Category.CategoryModelGrpc0\001\022R\n\010findByI" +
+      "d\022\035.GrpcClasses.Category.GetById\032\'.GrpcC" +
+      "lasses.Category.CategoryModelGrpcb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_GrpcClasses_Category_GetByPostId_descriptor =
+    internal_static_GrpcClasses_Category_GetById_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_GrpcClasses_Category_GetByPostId_fieldAccessorTable = new
+    internal_static_GrpcClasses_Category_GetById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GrpcClasses_Category_GetByPostId_descriptor,
+        internal_static_GrpcClasses_Category_GetById_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_GrpcClasses_Category_CategoryModelGrpc_descriptor =
       getDescriptor().getMessageTypes().get(1);
