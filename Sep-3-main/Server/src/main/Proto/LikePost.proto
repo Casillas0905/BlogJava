@@ -6,6 +6,7 @@ service LikePostGrpc{
   rpc saveLike(LikeModelGrpc) returns (Empty){}
   rpc deleteById(GetById) returns (Empty){}
   rpc findLikesByPostId(GetById) returns (Count){}
+  rpc findByPostLikedAndUserLiking(PostUserId) returns(IsLiked);
 }
 
 message LikeModelGrpc {
@@ -16,6 +17,15 @@ message LikeModelGrpc {
 
 message GetById{
   int32 id=1;
+}
+
+message PostUserId{
+  int32 userId=1;
+  int32 postId=2;
+}
+
+message IsLiked{
+  bool isliked=1;
 }
 
 message Count{
