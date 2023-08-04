@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
         existing.setLastName(userModel.getLastName());
         existing.setBirthday(userModel.getBirthday());
         existing.setEmail(userModel.getEmail());
+        existing.setPassword(userModel.getPassword());
         return userRepository.save(existing);
     }
 

@@ -89,6 +89,8 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
                 request.getLastName(),
                 date,
                 request.getAdministrator()));
+        User.Empty empty= User.Empty.newBuilder().build();
+        responseObserver.onNext(empty);
         responseObserver.onCompleted();
         System.out.println("User updated");
     }
