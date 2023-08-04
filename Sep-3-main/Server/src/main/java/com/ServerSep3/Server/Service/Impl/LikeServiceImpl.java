@@ -21,7 +21,14 @@ public class LikeServiceImpl implements LikeService {
         likeRepository.deleteById(id);
     }
     @Override
-    public LikeModel findByPostLikedAndUserLiking(int PostId, int Userid) {
+    public boolean findByPostLikedAndUserLiking(int PostId, int Userid) {
         return likeRepository.findByPostLikedAndUserLiking(PostId, Userid);
     }
+
+    @Override
+    public int findLikesByPostLiked(int postId) {
+        return likeRepository.findByPostLiked(postId);
+    }
+
+
 }

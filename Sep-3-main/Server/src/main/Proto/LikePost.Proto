@@ -1,0 +1,26 @@
+syntax= "proto3";
+
+package GrpcClasses.LikePost;
+
+service LikePostGrpc{
+  rpc saveLike(LikeModelGrpc) returns (Empty){}
+  rpc deleteById(GetById) returns (Empty){}
+  rpc findLikesByPostId(GetById) returns (Count){}
+}
+
+message LikeModelGrpc {
+  int32 id = 1;
+  int32 userIdLiking = 2;
+  int32 postIdLiked = 3;
+}
+
+message GetById{
+  int32 id=1;
+}
+
+message Count{
+  int32 count=1;
+}
+
+message Empty{
+}

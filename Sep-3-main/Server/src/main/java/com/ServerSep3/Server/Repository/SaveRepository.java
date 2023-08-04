@@ -11,4 +11,5 @@ import java.util.List;
 public interface SaveRepository extends JpaRepository<SaveModel,Long> {
     List<SaveModel> findByUserId(int id);
     void deleteById(int id);
+
 }
