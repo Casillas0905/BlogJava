@@ -1,13 +1,12 @@
 package com.ServerSep3.Server.Service.Impl;
 
 import com.ServerSep3.Server.Model.LikeModel;
-import com.ServerSep3.Server.Repository.CommentRepository;
 import com.ServerSep3.Server.Repository.LikeRepository;
 import com.ServerSep3.Server.Service.LikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class LikeServiceImpl implements LikeService {
@@ -32,10 +31,8 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public int findLikesByPostLiked(int postId) {
-        ArrayList<LikeModel> list= (ArrayList<LikeModel>) likeRepository.findByPostLiked(postId);
-        return list.size();
+    public List<LikeModel> findLikesByPostLiked(int postId) {
+        return likeRepository.findByPostLiked(postId);
     }
-
 
 }

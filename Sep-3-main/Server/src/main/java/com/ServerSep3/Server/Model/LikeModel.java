@@ -11,10 +11,10 @@ public class LikeModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "userliking")
+    @JoinColumn(name = "userId")
     private UserModel userLiking;
     @ManyToOne
-    @JoinColumn(name = "postLiked")
+    @JoinColumn(name = "postId")
     private PostModel postLiked;
 
     public LikeModel() {

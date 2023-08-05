@@ -44,7 +44,8 @@ public class LikeGrpcImpl extends LikePostGrpcGrpc.LikePostGrpcImplBase {
 
     @Override
     public void findLikesByPostId(LikePost.GetById request, StreamObserver<LikePost.Count> responseObserver) {
-        int likes=likeService.findLikesByPostLiked(request.getId());
+        int likes=likeService.findLikesByPostLiked(request.getId()).size();
+        System.out.println("Likes:"+likes);
         LikePost.Count count= LikePost.Count.newBuilder().setCount(likes).build();
         responseObserver.onNext(count);
         responseObserver.onCompleted();

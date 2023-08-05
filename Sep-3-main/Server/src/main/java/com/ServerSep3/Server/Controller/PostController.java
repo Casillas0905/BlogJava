@@ -3,24 +3,22 @@ package com.ServerSep3.Server.Controller;
 import GrpcClasses.Post.Post;
 import com.ServerSep3.Server.Model.PostModel;
 import com.ServerSep3.Server.Model.UserModel;
+import com.ServerSep3.Server.Service.LikeService;
 import com.ServerSep3.Server.Service.PostService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/post")
+@RequestMapping("/like")
 public class PostController {
 
-    private final PostService postService;
+    private final LikeService likeService;
 
-    public PostController(PostService postService) {
-        this.postService = postService;
+    public PostController(LikeService postService) {
+        this.likeService = postService;
     }
 
-    @PostMapping("/save")
-    public PostModel saveUser(@RequestBody PostModel postModel) {
-        return postService.createPost(postModel);
+    @GetMapping("/findByPostId/{id}")
+    public int findByPostId(@PathVariable("id") int id){
+        return likeService.findLikesByPostLiked(id).size();
     }
 }
