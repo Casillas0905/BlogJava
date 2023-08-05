@@ -3140,16 +3140,16 @@ public final class LikePost {
       "d\022\n\n\002id\030\001 \001(\005\",\n\nPostUserId\022\016\n\006userId\030\001 " +
       "\001(\005\022\016\n\006postId\030\002 \001(\005\"\032\n\007IsLiked\022\017\n\007islike" +
       "d\030\001 \001(\010\"\026\n\005Count\022\r\n\005count\030\001 \001(\005\"\007\n\005Empty" +
-      "2\336\002\n\014LikePostGrpc\022N\n\010saveLike\022#.GrpcClas" +
+      "2\341\002\n\014LikePostGrpc\022N\n\010saveLike\022#.GrpcClas" +
       "ses.LikePost.LikeModelGrpc\032\033.GrpcClasses" +
-      ".LikePost.Empty\"\000\022J\n\ndeleteById\022\035.GrpcCl" +
-      "asses.LikePost.GetById\032\033.GrpcClasses.Lik" +
-      "ePost.Empty\"\000\022Q\n\021findLikesByPostId\022\035.Grp" +
-      "cClasses.LikePost.GetById\032\033.GrpcClasses." +
-      "LikePost.Count\"\000\022_\n\034findByPostLikedAndUs" +
-      "erLiking\022 .GrpcClasses.LikePost.PostUser" +
-      "Id\032\035.GrpcClasses.LikePost.IsLikedb\006proto" +
-      "3"
+      ".LikePost.Empty\"\000\022M\n\ndeleteById\022 .GrpcCl" +
+      "asses.LikePost.PostUserId\032\033.GrpcClasses." +
+      "LikePost.Empty\"\000\022Q\n\021findLikesByPostId\022\035." +
+      "GrpcClasses.LikePost.GetById\032\033.GrpcClass" +
+      "es.LikePost.Count\"\000\022_\n\034findByPostLikedAn" +
+      "dUserLiking\022 .GrpcClasses.LikePost.PostU" +
+      "serId\032\035.GrpcClasses.LikePost.IsLikedb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

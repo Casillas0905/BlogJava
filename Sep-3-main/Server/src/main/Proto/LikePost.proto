@@ -4,7 +4,7 @@ package GrpcClasses.LikePost;
 
 service LikePostGrpc{
   rpc saveLike(LikeModelGrpc) returns (Empty){}
-  rpc deleteById(GetById) returns (Empty){}
+  rpc deleteById(PostUserId) returns (Empty){}
   rpc findLikesByPostId(GetById) returns (Count){}
   rpc findByPostLikedAndUserLiking(PostUserId) returns(IsLiked);
 }

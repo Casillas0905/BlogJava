@@ -5,8 +5,10 @@ import com.ServerSep3.Server.Model.LikeModel;
 import com.ServerSep3.Server.Model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface LikeRepository extends JpaRepository<LikeModel,Long> {
-    boolean findByPostLikedAndUserLiking(int PostId,int Userid);
-    void deleteById(int id);
-    int findByPostLiked(int postId);
+    LikeModel findByPostLikedAndUserLiking(int PostId,int Userid);
+    void deleteByPostLikedAndUserLiking(int PostId,int Userid);
+    List<LikeModel> findByPostLiked(int postId);
 }

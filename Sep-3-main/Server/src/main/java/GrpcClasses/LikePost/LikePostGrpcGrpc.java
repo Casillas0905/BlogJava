@@ -45,27 +45,27 @@ public final class LikePostGrpcGrpc {
     return getSaveLikeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<GrpcClasses.LikePost.LikePost.GetById,
+  private static volatile io.grpc.MethodDescriptor<GrpcClasses.LikePost.LikePost.PostUserId,
       GrpcClasses.LikePost.LikePost.Empty> getDeleteByIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "deleteById",
-      requestType = GrpcClasses.LikePost.LikePost.GetById.class,
+      requestType = GrpcClasses.LikePost.LikePost.PostUserId.class,
       responseType = GrpcClasses.LikePost.LikePost.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<GrpcClasses.LikePost.LikePost.GetById,
+  public static io.grpc.MethodDescriptor<GrpcClasses.LikePost.LikePost.PostUserId,
       GrpcClasses.LikePost.LikePost.Empty> getDeleteByIdMethod() {
-    io.grpc.MethodDescriptor<GrpcClasses.LikePost.LikePost.GetById, GrpcClasses.LikePost.LikePost.Empty> getDeleteByIdMethod;
+    io.grpc.MethodDescriptor<GrpcClasses.LikePost.LikePost.PostUserId, GrpcClasses.LikePost.LikePost.Empty> getDeleteByIdMethod;
     if ((getDeleteByIdMethod = LikePostGrpcGrpc.getDeleteByIdMethod) == null) {
       synchronized (LikePostGrpcGrpc.class) {
         if ((getDeleteByIdMethod = LikePostGrpcGrpc.getDeleteByIdMethod) == null) {
           LikePostGrpcGrpc.getDeleteByIdMethod = getDeleteByIdMethod =
-              io.grpc.MethodDescriptor.<GrpcClasses.LikePost.LikePost.GetById, GrpcClasses.LikePost.LikePost.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<GrpcClasses.LikePost.LikePost.PostUserId, GrpcClasses.LikePost.LikePost.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  GrpcClasses.LikePost.LikePost.GetById.getDefaultInstance()))
+                  GrpcClasses.LikePost.LikePost.PostUserId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   GrpcClasses.LikePost.LikePost.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new LikePostGrpcMethodDescriptorSupplier("deleteById"))
@@ -195,7 +195,7 @@ public final class LikePostGrpcGrpc {
 
     /**
      */
-    public void deleteById(GrpcClasses.LikePost.LikePost.GetById request,
+    public void deleteById(GrpcClasses.LikePost.LikePost.PostUserId request,
         io.grpc.stub.StreamObserver<GrpcClasses.LikePost.LikePost.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteByIdMethod(), responseObserver);
     }
@@ -227,7 +227,7 @@ public final class LikePostGrpcGrpc {
             getDeleteByIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                GrpcClasses.LikePost.LikePost.GetById,
+                GrpcClasses.LikePost.LikePost.PostUserId,
                 GrpcClasses.LikePost.LikePost.Empty>(
                   this, METHODID_DELETE_BY_ID)))
           .addMethod(
@@ -272,7 +272,7 @@ public final class LikePostGrpcGrpc {
 
     /**
      */
-    public void deleteById(GrpcClasses.LikePost.LikePost.GetById request,
+    public void deleteById(GrpcClasses.LikePost.LikePost.PostUserId request,
         io.grpc.stub.StreamObserver<GrpcClasses.LikePost.LikePost.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteByIdMethod(), getCallOptions()), request, responseObserver);
@@ -318,7 +318,7 @@ public final class LikePostGrpcGrpc {
 
     /**
      */
-    public GrpcClasses.LikePost.LikePost.Empty deleteById(GrpcClasses.LikePost.LikePost.GetById request) {
+    public GrpcClasses.LikePost.LikePost.Empty deleteById(GrpcClasses.LikePost.LikePost.PostUserId request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteByIdMethod(), getCallOptions(), request);
     }
@@ -363,7 +363,7 @@ public final class LikePostGrpcGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<GrpcClasses.LikePost.LikePost.Empty> deleteById(
-        GrpcClasses.LikePost.LikePost.GetById request) {
+        GrpcClasses.LikePost.LikePost.PostUserId request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteByIdMethod(), getCallOptions()), request);
     }
@@ -412,7 +412,7 @@ public final class LikePostGrpcGrpc {
               (io.grpc.stub.StreamObserver<GrpcClasses.LikePost.LikePost.Empty>) responseObserver);
           break;
         case METHODID_DELETE_BY_ID:
-          serviceImpl.deleteById((GrpcClasses.LikePost.LikePost.GetById) request,
+          serviceImpl.deleteById((GrpcClasses.LikePost.LikePost.PostUserId) request,
               (io.grpc.stub.StreamObserver<GrpcClasses.LikePost.LikePost.Empty>) responseObserver);
           break;
         case METHODID_FIND_LIKES_BY_POST_ID:

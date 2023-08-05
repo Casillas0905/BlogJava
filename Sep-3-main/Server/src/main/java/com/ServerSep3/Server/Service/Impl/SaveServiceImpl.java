@@ -14,7 +14,10 @@ public class SaveServiceImpl implements SaveService {
     SaveRepository saveRepository;
     @Override
     public List<SaveModel> findByUserId(int userId) {
-        return saveRepository.findByUserId(userId);
+
+        List<SaveModel> saveModelList= saveRepository.findByUserId(userId);
+        System.out.println("Find by user id:"+saveModelList.size());
+        return saveModelList;
     }
 
     @Override

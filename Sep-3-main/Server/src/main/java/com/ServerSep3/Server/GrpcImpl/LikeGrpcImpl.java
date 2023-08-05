@@ -35,8 +35,8 @@ public class LikeGrpcImpl extends LikePostGrpcGrpc.LikePostGrpcImplBase {
     }
 
     @Override
-    public void deleteById(LikePost.GetById request, StreamObserver<LikePost.Empty> responseObserver) {
-        likeService.deleteLikeById(request.getId());
+    public void deleteById(LikePost.PostUserId request, StreamObserver<LikePost.Empty> responseObserver) {
+        likeService.deleteLikeByPostLikedAndUserLiking(request.getPostId(), request.getUserId());
         LikePost.Empty empty= LikePost.Empty.newBuilder().build();
         responseObserver.onNext(empty);
         responseObserver.onCompleted();
