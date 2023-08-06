@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class PostModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserModel user;
@@ -16,7 +16,7 @@ public class PostModel {
     private CategoryModel category;
     @Column
     private String title;
-    @Column
+    @Column(length = 1000000)
     private String description;
     @Column
     private String imageUrl;
@@ -27,7 +27,7 @@ public class PostModel {
     public PostModel() {
     }
 
-    public PostModel(Long id, UserModel user, CategoryModel category, String title, String description, String imageUrl, LocationModel location) {
+    public PostModel(int id, UserModel user, CategoryModel category, String title, String description, String imageUrl, LocationModel location) {
         this.id = id;
         this.user = user;
         this.category = category;
@@ -37,11 +37,11 @@ public class PostModel {
         this.location = location;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
