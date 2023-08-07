@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
         existing.setBirthday(userModel.getBirthday());
         existing.setEmail(userModel.getEmail());
         existing.setPassword(userModel.getPassword());
+        System.out.println("Update user");
         return userRepository.save(existing);
     }
 
