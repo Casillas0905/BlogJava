@@ -36,7 +36,6 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
 
     @Override
     public void createPost(Post.PostModelGrpc request, StreamObserver<Post.Empty> responseObserver) {
-        System.out.println("post called");
         UserModel user= userService.findById(request.getUserId());
         CategoryModel category= categoryService.findById(request.getCategory());
         LocationModel location= locationService.findById(request.getLocation());
@@ -56,9 +55,7 @@ public class PostGrpcImpl extends PostGrpcGrpc.PostGrpcImplBase {
     @Override
     public void findById(Post.GetById request, StreamObserver<Post.PostModelGrpc> responseObserver) {
         PostModel model=postService.findById(request.getId());
-        System.out.println("post");
         if (model == null){
-            System.out.println("its null");
             Post.PostModelGrpc response= Post.PostModelGrpc.newBuilder()
                     .setCategory(0)
                     .setId(0)

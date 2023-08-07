@@ -16,7 +16,6 @@ public class SaveServiceImpl implements SaveService {
     public List<SaveModel> findByUserId(int userId) {
 
         List<SaveModel> saveModelList= saveRepository.findByUserId(userId);
-        System.out.println("Find by user id:"+saveModelList.size());
         return saveModelList;
     }
 

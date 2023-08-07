@@ -43,9 +43,7 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
     @Override
     public void findById(User.GetById request, StreamObserver<User.UserModelGrpc> responseObserver) {
         UserModel model=userService.findById(request.getId());
-        System.out.println("Category");
         if (model == null){
-            System.out.println("its null");
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName("niull")
                     .setId(0)
@@ -80,7 +78,6 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
 
     @Override
     public void updateUser(User.UserModelGrpc request, StreamObserver<User.Empty> responseObserver) {
-        System.out.println("Update user");
         Date date=new Date(request.getYear(),request.getMonth(), request.getDay());
         userService.updateUser(new UserModel(request.getId(),
                 request.getFirstName(),
@@ -92,7 +89,6 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
         User.Empty empty= User.Empty.newBuilder().build();
         responseObserver.onNext(empty);
         responseObserver.onCompleted();
-        System.out.println("User updated");
     }
 
 
@@ -101,7 +97,6 @@ public class UserGrpcIml extends UserGrpcGrpc.UserGrpcImplBase {
     public void findByEmail(User.GetByEmail request, StreamObserver<User.UserModelGrpc> responseObserver) {
         UserModel model=userService.findByEmail(request.getEmail());
         if (model == null){
-            System.out.println("its null");
             User.UserModelGrpc response= User.UserModelGrpc.newBuilder()
                     .setFirstName("niull")
                     .setId(0)

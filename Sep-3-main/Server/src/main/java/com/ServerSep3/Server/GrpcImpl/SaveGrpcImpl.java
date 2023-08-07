@@ -56,7 +56,6 @@ public class SaveGrpcImpl extends SavePostGrpcGrpc.SavePostGrpcImplBase {
                     .build();
             listGrpc.add(comment);
         }
-        System.out.println("Size save:"+listGrpc.size());
         for(SavePost.SaveModelGrpc saveModelGrpc : listGrpc){
             responseObserver.onNext(saveModelGrpc);
         }

@@ -53,7 +53,6 @@ public class LocationGrpcImpl extends LocationGrpcGrpc.LocationGrpcImplBase {
     public void findById(Location.GetById request, StreamObserver<Location.LocationModelGrpc> responseObserver) {
         LocationModel model=locationService.findById(request.getId());
         if (model == null){
-            System.out.println("its null");
             Location.LocationModelGrpc response= Location.LocationModelGrpc.newBuilder()
                     .setLocation("niull")
                     .setId(0)

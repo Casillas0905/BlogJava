@@ -64,7 +64,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostModel updatePost(PostModel postModel) {
-        System.out.println("Id:"+postModel.getId());
         PostModel existing= postRepository.findById(postModel.getId());
         existing.setCategory(postModel.getCategory());
         existing.setLocation(postModel.getLocation());

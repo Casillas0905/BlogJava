@@ -54,11 +54,8 @@ public class CategoryGrpcImpl extends CategoryGrpcGrpc.CategoryGrpcImplBase {
 
     @Override
     public void findById(Category.GetById request, StreamObserver<Category.CategoryModelGrpc> responseObserver) {
-        System.out.println("Id:"+ request.getId());
         CategoryModel model=categoryService.findById(request.getId());
-        System.out.println("Category");
         if (model == null){
-            System.out.println("its null");
             Category.CategoryModelGrpc response= Category.CategoryModelGrpc.newBuilder()
                     .setCategory("niull")
                     .setId(0)
